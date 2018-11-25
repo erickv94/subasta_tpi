@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('layouts.plantillaAdmin')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -10,9 +9,13 @@
                 </div>
 
                 <div class="card-body">
-                    {{ Form::open(['route' => 'products.store']) }}
-                        @include('products.partials.form')
-                    {{ Form::close() }}
+                    <div class="col-lg-8 col-md-12 col-xs-12">
+                        <div class="login-form login-area">
+                            {{ Form::open(['route' => 'products.store']) }}
+                                @include('products.partials.form')
+                            {{ Form::close() }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -12,6 +12,7 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
+        /*
         //Users
         Permission::create([
             'name'          =>   'Navegar usuarios',
@@ -60,6 +61,7 @@ class PermissionsTableSeeder extends Seeder
             'slug'          =>   'roles.destroy',
             'description'   =>   'Eliminar cualquier rol del sistema',
         ]);
+        */
 
         //Products
         Permission::create([
@@ -86,6 +88,17 @@ class PermissionsTableSeeder extends Seeder
             'name'          =>   'Eliminar producto',
             'slug'          =>   'products.destroy',
             'description'   =>   'Eliminar cualquier producto del sistema',
+        ]);
+        //Reglas para la subasta
+        Permission::create([
+            'name'          =>   'Apostar Producto',
+            'slug'          =>   'products.apuesta',
+            'description'   =>   'Permite apostar un producto',
+        ]);
+        Permission::create([
+            'name'          =>   'Vender Producto',
+            'slug'          =>   'products.venta',
+            'description'   =>   'Permite finalizar la apuesta un producto',
         ]);
     }
 }

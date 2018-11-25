@@ -14,11 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Rutas para registro de usuarios de Empresa y Cliente
+Route::get('empresas/create', 'UserController@createEmpresa')->name('empresas.create');
+Route::get('clientes/create', 'UserController@createCliente')->name('clientes.create');
+Route::post('users/store', 'UserController@store')->name('users.store');
 //Routes
 
 Route::middleware(['auth'])->group(function(){

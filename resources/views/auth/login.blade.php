@@ -1,4 +1,4 @@
-@extends('layouts.plantilla')
+@extends('layouts.plantillaInicial')
 
 @section('content')
 <div class="page-header" style="background: url(assets/img/banner1.jpg);">
@@ -6,9 +6,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-wrapper">
-                    <h2 class="product-title">Login</h2>
+                    <h2 class="product-title">Inicio de Sesión</h2>
                         <ol class="breadcrumb">
-                            <li class="current">Login</li>
+                            <li class="current">Inicio de Sesión</li>
                         </ol>
                 </div>
             </div>
@@ -20,7 +20,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-5 col-md-12 col-xs-12">
                 <div class="login-form login-area">
-                    <h3>Login Now</h3>
+                    <h3>Inicio de Sesión</h3>
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
@@ -75,6 +75,15 @@
                             </div>
                         </div>
                     </form>
+                    @if (session('info'))
+                    <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <div class="alert alert-success">
+                                    {{ session('info') }}
+                                </div>
+                            </div>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
