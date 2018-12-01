@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use Caffeinated\Shinobi\Models\Role;
 use Caffeinated\Shinobi\Models\Permission;
+//Validaciones Request
+use Illuminate\Http\Request;
+use App\Http\Requests\RolStoreRequest;
+use App\Http\Requests\RolUpdateRequest;
 
 class RoleController extends Controller
 {
@@ -37,11 +39,11 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RolStoreRequest $request)
     {
         $role = Role::create($request->all());
         $role->permissions()->sync($request->get('permissions'));
-        return redirect()->route('roles.show', $role->id)
+        return redirect()->route('roles.show', $role->slug)
             ->with('msj','El Rol: '.$role->name.' ha sido guardado');
     }
 
@@ -51,9 +53,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $role = Role::findOrFail($id);
+        $role = Role::where('slug',$slug)->first();
         return view('roles.show', compact('role'));
     }
 
@@ -63,9 +65,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $role = Role::findOrFail($id);
+        $role = Role::where('slug',$slug)->first();
         $permissions = Permission::get();
         return view('roles.edit', compact('role', 'permissions'));
     }
@@ -82,7 +84,7 @@ class RoleController extends Controller
         $role = Role::findOrFail($id);
         $role->update($request->all());
         $role->permissions()->sync($request->get('permissions'));
-        return redirect()->route('roles.show', $role->id)
+        return redirect()->route('roles.show', $role->slug)
             ->with('msj','El Rol: '.$role->name.' ha sido modificado');
     }
 

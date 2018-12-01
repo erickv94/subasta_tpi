@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller

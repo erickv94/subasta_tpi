@@ -78,53 +78,55 @@
     </nav>
 
     <div id="wrapper">
-
-
+      <?php function activeMenu($url){
+         return request()->is($url) ? 'active' : '';
+      }
+      ?>
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('home') }}">
+        <li class="nav-item {{activeMenu('home')}}">
+          <a class="nav-link " href="{{ route('home') }}">
             <i class="fas fa-home"></i>
             <span>Home</span>
           </a>
         </li>
         @can('users.index')
-        <li class="nav-item">
+        <li class="nav-item {{activeMenu('users')}}">
           <a class="nav-link" href="{{ route('users.index') }}">
           <i class="fas fa-users"></i>
             <span>Usuarios</span></a>
         </li>
         @endcan
         @can('roles.index')
-        <li class="nav-item">
+        <li class="nav-item {{activeMenu('roles')}}">
           <a class="nav-link" href="{{ route('roles.index') }}">
            <i class="fas fa-chalkboard-teacher"></i>
             <span>Roles</span></a>
         </li>
         @endcan
         @can('categorias.index')
-        <li class="nav-item">
+        <li class="nav-item {{activeMenu('categorias')}}">
           <a class="nav-link" href="{{ route('categorias.index') }}">
           <i class="fas fa-poll-h"></i>
             <span>Categorias</span></a>
         </li>
         @endcan
         @can('productos.index')
-        <li class="nav-item">
+        <li class="nav-item {{activeMenu('productos')}}">
           <a class="nav-link" href="{{ route('productos.index') }}">
             <i class="fas fa-business-time"></i>
             <span>Productos</span></a>
         </li>
         @endcan
         @can('empresas.index')
-        <li class="nav-item">
+        <li class="nav-item {{activeMenu('empresas')}}">
           <a class="nav-link" href="{{ route('empresas.index') }}">
           <i class="fas fa-city"></i>
             <span>Empresas</span></a>
         </li>
         @endcan
-        @can('empresas.index')
-        <li class="nav-item">
+        @can('clientes.index')
+        <li class="nav-item {{activeMenu('clientes')}}">
           <a class="nav-link" href="{{ route('clientes.index') }}">
           <i class="fas fa-tags"></i>
             <span>Clientes</span></a>

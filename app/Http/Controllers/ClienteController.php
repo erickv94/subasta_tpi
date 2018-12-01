@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
+use App\Cliente;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use App\User;
-
-use App\Cliente;
-
-use Carbon\Carbon;
 use Caffeinated\Shinobi\Models\Role;
+//Validaciones Request
+use Illuminate\Http\Request;
+use App\Http\Requests\ClienteStoreRequest;
 
 class ClienteController extends Controller
 {
@@ -47,7 +47,7 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClienteStoreRequest $request)
     {
         $user = User::create($request->all());
         $user->password= bcrypt($request->password);

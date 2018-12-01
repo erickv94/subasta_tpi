@@ -15,7 +15,15 @@
                     <p><strong>Nombre</strong>     {{ $role->name }}</p>
                     <p><strong>Slug</strong>       {{ $role->slug }}</p>
                     <p><strong>Descripción</strong>  {{ $role->description }}</p> 
+                    <p>
+                    @can('roles.edit')
+                    <a type="button" class="btn btn-sm btn-primary pull-right" href="{{ route('roles.edit', $role->slug) }}">
+                        <i class="fas fa-save"></i> Editar
+                    </a>
+                    @endcan
+                    </p>
                 </div>
+                
             </div>
         </div>
     </div>

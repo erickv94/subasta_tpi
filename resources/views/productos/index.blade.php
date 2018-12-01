@@ -26,7 +26,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Codigo</th>
+                      <th>Categoria</th>
                       <th>Nombre del Producto</th>
                       <th>Fecha Publicacion</th>
                       <th>Fecha Expiracion</th>
@@ -35,8 +35,7 @@
                   </thead>
                   <tfoot>
                     <tr>
-                        <th>Codigo</th>
-                        <th>Nombre del Producto</th>
+                        <th>Categoria</th>
                         <th>Fecha Publicacion</th>
                         <th>Fecha Expiracion</th>
                         <th colspan="5">Acciones</th>
@@ -45,7 +44,7 @@
                   <tbody>
                   @foreach($productos as $product)
                           <tr>
-                              <td>{{ $product->codigo }}</td>
+                              <td>{{ $product->Categorias->nombre_categoria }}</td>
                               <td>{{ $product->nombre_producto }}</td>
                               <td>{{ $product->fecha_publicacion }}</td>
                               <td>{{ $product->fecha_expiracion }}</td>

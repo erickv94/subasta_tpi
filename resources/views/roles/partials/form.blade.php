@@ -1,10 +1,20 @@
 <div class="form-group">
 	{{ Form::label('name', 'Nombre de la etiqueta') }}
 	{{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
+	@if($errors->has('name'))
+		<div class="form-control-feedback text-danger">
+				{{$errors->first('name')}}
+		</div>		
+	@endif
 </div>
 <div class="form-group">
 	{{ Form::label('slug', 'URL Amigable') }}
 	{{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) }}
+	@if($errors->has('slug'))
+		<div class="form-control-feedback text-danger">
+				{{$errors->first('slug')}}
+		</div>		
+	@endif
 </div>
 <div class="form-group">
 	{{ Form::label('description', 'Descripción') }}

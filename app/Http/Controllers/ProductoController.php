@@ -7,7 +7,9 @@ use App\Categoria;
 use App\Producto;
 use App\Empresa;
 use App\User;
+//Validaciones Request
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductoStoreRequest;
 
 class ProductoController extends Controller
 {
@@ -32,7 +34,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        $categorias = Categoria::all()->pluck('nombre_categoria','id_categoria');
+        $categorias = Categoria::get();
         return view('productos.create',compact('categorias'));
     }
 
@@ -42,19 +44,29 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductoStoreRequest $request)
     {
         $user = Auth::user()->empresas;
+        //Codigo es generado por la aplicación
+        $cantidad = Producto::count();
+        $nombre_empresa = Auth::user()->username;
+        $codigo = str_slug($cantidad.' '.$request->nombre_producto. 
+        ' ' . $nombre_empresa
+        );
         $producto = new Producto;
-        $producto->codigo = $request->codigo;
+        //Asignando asociaciones
+        $producto->empresas()->associate($user->id_empresa);
+        $producto->categorias()->associate($request->get('categorias'));
+        //Asignando los valores a cada variable
+        $producto->codigo = $codigo;
         $producto->nombre_producto = $request->nombre_producto;
-        $producto->slug=str_slug($request->nombre_producto. ' ' . $request->codigo);
         $producto->precio_inicial = (float) $request->precio_inicial;
         $producto->fecha_publicacion=Carbon::now();
         $producto->fecha_expiracion= $request->fecha_expiracion ;
         $producto->descripcion = $request->descripcion;
-        $producto->empresas()->associate($user->id_empresa);
-        $producto->categorias()->associate($request->get('categorias'));
+        //Slug creado con el codigo y el nombre de la categoria
+        $categoria_nombre = $producto->categorias->nombre_categoria;
+        $producto->slug=str_slug($codigo. ' ' . $categoria_nombre);
         $producto->save();
         return redirect()->route('productos.show',$producto->slug)
             ->with('msj','El producto: '.$producto->nombre_producto.' ha sido guardado');
@@ -79,7 +91,7 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        $categorias = Categoria::all()->pluck('nombre_categoria','id_categoria');
+        $categorias = Categoria::get();
         return view('productos.edit',compact('producto','categorias'));
     }
 
@@ -90,17 +102,27 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductoStoreRequest $request, $id)
     {
         $user = Auth::user()->empresas;
+        //Codigo es generado por la aplicación
+        $cantidad = Producto::count();
+        $nombre_empresa = Auth::user()->username;
+        $codigo = str_slug($cantidad.' '.$request->nombre_producto. 
+        ' ' . $nombre_empresa
+        );
         $producto = Producto::findOrFail($id);
-        $producto->codigo = $request->codigo;
+        //Asignando asociacion
+        $producto->categorias()->associate($request->get('categorias'));
+        //Asignando los valores a cada variable
+        $producto->codigo = $codigo;
         $producto->nombre_producto = $request->nombre_producto;
-        $producto->slug=str_slug($request->nombre_producto. ' ' . $request->codigo);
         $producto->precio_inicial = (float) $request->precio_inicial;
         $producto->fecha_expiracion= $request->fecha_expiracion ;
         $producto->descripcion = $request->descripcion;
-        $producto->categorias()->associate($request->get('categorias'));
+        //Slug creado con el codigo y el nombre de la categoria
+        $categoria_nombre = $producto->categorias->nombre_categoria;
+        $producto->slug=str_slug($codigo. ' ' . $categoria_nombre);
         $producto->update();
         return redirect()->route('productos.show',$producto->slug)
                 ->with('info','Producto actualizado con éxito');

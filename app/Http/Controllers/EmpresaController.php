@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Empresa;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Caffeinated\Shinobi\Models\Role;
+//Validaciones Request
+use Illuminate\Http\Request;
+use App\Http\Requests\EmpresaStoreRequest;
 
 
 class EmpresaController extends Controller
@@ -45,7 +47,7 @@ class EmpresaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmpresaStoreRequest $request)
     {
         $user = User::create($request->all());
         $user->password= bcrypt($request->password);

@@ -17,6 +17,7 @@
                 @endif
                 <p><strong>Codigo: </strong>     {{ $producto->codigo }}</p>
                 <p><strong>Nombre: </strong>     {{ $producto->nombre_producto }}</p>
+                <p><strong>Slug: </strong>     {{ $producto->slug }}</p>
                 <p><strong>Descripción: </strong>  {{ $producto->descripcion }}</p> 
                 <p><strong>Precio Inicial: </strong>  {{ $producto->precio_inicial }}</p>
                 <p><strong>Categoria: </strong> {{ $producto->categorias->nombre_categoria }}</p>

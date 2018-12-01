@@ -36,11 +36,11 @@ Route::middleware(['auth'])->group(function(){
                 ->middleware('permission:roles.create');
         Route::put('roles/{role}', 'RoleController@update')->name('roles.update')
                 ->middleware('permission:roles.edit');
-        Route::get('roles/{role}', 'RoleController@show')->name('roles.show')
+        Route::get('roles/{slug}', 'RoleController@show')->name('roles.show')
                 ->middleware('permission:roles.show');
         Route::delete('roles/{role}', 'RoleController@destroy')->name('roles.destroy')
                 ->middleware('permission:roles.destroy');
-        Route::get('roles/{role}/edit', 'RoleController@edit')->name('roles.edit')
+        Route::get('roles/{slug}/edit', 'RoleController@edit')->name('roles.edit')
                 ->middleware('permission:roles.edit');
         //Users
         Route::get('users', 'UserController@index')->name('users.index')
