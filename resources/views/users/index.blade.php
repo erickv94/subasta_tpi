@@ -4,7 +4,7 @@
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="#">Home</a>
+    <a href="/home">Home</a>
   </li>
   <li class="breadcrumb-item active">Usuarios</li>
 </ol>
@@ -41,29 +41,20 @@
                               <td>{{ $user->name }}</td>
                               <td>{{ $user->username }}</td>
                               @can('users.show')
-                              <td width="10px">
-                                  <button type="button" class="btn btn-sm btn-primary" href="{{ route('users.show', $user->id) }}">
-                                    Ver
-                                  </button>
+                              <td width="8px">
+                                <a type="button" class="btn btn-sm btn-info pull-right" href="{{ route('users.show', $user->id) }}">
+                                  <i class="far fa-eye"></i>Ver
+                                  </a>
                               </td>
                               @endcan
                               @can('users.edit')
-                              <td width="10px">
-                                <button type="button" class="btn btn-sm btn-info" href="{{ route('users.edit', $user->id) }}">
-                                  Editar
-                                </button>
+                              <td width="8px">
+                                  <a type="button" class="btn btn-sm btn-primary pull-right" href="{{ route('users.edit', $user->id) }}">
+                                  <i class="fas fa-save"></i> Editar
+                                  </a>
                               </td>
                               @endcan
-                              @can('users.destroy')
-                              <td width="10px">
-                                  {!! Form::open(['route' => ['users.destroy', $user->id],
-                                  'method' => 'DELETE']) !!}
-                                      <button type="button" class="btn btn-sm btn-danger">
-                                          Eliminar
-                                      </button>
-                                  {!! Form::close() !!}
-                              </td>
-                              @endcan
+                              
                           </tr>
                           @endforeach
                       </tbody>

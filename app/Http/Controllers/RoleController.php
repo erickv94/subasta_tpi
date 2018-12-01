@@ -42,7 +42,7 @@ class RoleController extends Controller
         $role = Role::create($request->all());
         $role->permissions()->sync($request->get('permissions'));
         return redirect()->route('roles.show', $role->id)
-            ->with('info', 'Rol guardado con éxito');
+            ->with('msj','El Rol: '.$role->name.' ha sido guardado');
     }
 
     /**
@@ -53,7 +53,7 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
         return view('roles.show', compact('role'));
     }
 
@@ -65,7 +65,7 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
         $permissions = Permission::get();
         return view('roles.edit', compact('role', 'permissions'));
     }
@@ -79,11 +79,11 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
         $role->update($request->all());
         $role->permissions()->sync($request->get('permissions'));
         return redirect()->route('roles.show', $role->id)
-            ->with('info', 'Rol actualizado con éxito');
+            ->with('msj','El Rol: '.$role->name.' ha sido modificado');
     }
 
     /**
@@ -94,7 +94,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $role = Role::find($id)->delete();
+        $role = Role::findOrFail($id)->delete();
         return back()->with('info', 'Eliminado correctamente');
     }
 }

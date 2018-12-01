@@ -85,8 +85,8 @@
                             Registrese
                             </a>
                             <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('empresas.create') }}">Registrese como Empresa</a>
-                            <a class="dropdown-item" href="{{ route('clientes.create') }}">Registrese como Cliente</a>
+                            <a class="dropdown-item" href="{{ route('crearEmpresa') }}">Registrese como Empresa</a>
+                            <a class="dropdown-item" href="{{ route('crearCliente') }}">Registrese como Cliente</a>
                             </div>
                         </li>
                     </ul>
@@ -112,8 +112,8 @@
                 <li>
                     <a href="#">Registrese</a>
                         <ul class="dropdown">
-                            <li><a href="{{ url('/registroEmpresas') }}">Registrese como Empresa</a></li>
-                            <li><a href="{{  url('/registroClientes') }}">Registrese como Cliente</a></li>
+                            <li><a href="{{ route('crearEmpresa') }}">Registrese como Empresa</a></li>
+                            <li><a href="{{ route('crearCliente') }}">Registrese como Cliente</a></li>
                         </ul>
                 </li>
             </ul>

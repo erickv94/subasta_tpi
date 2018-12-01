@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('users.store') }}">
+<form method="POST" action="{{ route('clientes.store') }}">
                         @csrf
                         <input type="hidden" name="role_id" value="2" id="role_id">
 
@@ -61,8 +61,7 @@
                             <label for="fecha_nacimiento" class="col-md-4 col-form-label text-md-right">{{ __('Fecha de Nacimiento') }}</label>
 
                             <div class="col-md-6">
-                                <input id="fecha_nacimiento" type="fecha_nacimiento" class="form-control{{ $errors->has('fecha_naciemiento') ? ' is-invalid' : '' }}" name="fecha_naciemiento" value="{{ old('fecha_naciemiento') }}">
-
+                                {{ Form::date('fecha_nacimiento', null, ['class' => 'form-control', 'id' => 'fecha_nacimiento']) }}
                                 @if ($errors->has('fecha_nacimiento'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('fecha_nacimiento') }}</strong>
@@ -83,8 +82,6 @@
                                 @endif
                             </div>
                         </div>
-                        
-                        
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>

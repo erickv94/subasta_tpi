@@ -60,12 +60,12 @@
 
         <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ Auth::user()->name }}
+            {{ Auth::user()->username}}
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">Settings</a>
-            <a class="dropdown-item" href="#">Activity Log</a>
+            <a class="dropdown-item" href="#">Configuraciòn</a>
+            <a class="dropdown-item" href="#">Perfil</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ route('logout') }}"  data-toggle="modal" data-target="#logoutModal">
                 {{ __('Logout') }}
@@ -102,11 +102,32 @@
             <span>Roles</span></a>
         </li>
         @endcan
-        @can('products.index')
+        @can('categorias.index')
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('products.index') }}">
+          <a class="nav-link" href="{{ route('categorias.index') }}">
+          <i class="fas fa-poll-h"></i>
+            <span>Categorias</span></a>
+        </li>
+        @endcan
+        @can('productos.index')
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('productos.index') }}">
             <i class="fas fa-business-time"></i>
             <span>Productos</span></a>
+        </li>
+        @endcan
+        @can('empresas.index')
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('empresas.index') }}">
+          <i class="fas fa-city"></i>
+            <span>Empresas</span></a>
+        </li>
+        @endcan
+        @can('empresas.index')
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('clientes.index') }}">
+          <i class="fas fa-tags"></i>
+            <span>Clientes</span></a>
         </li>
         @endcan
       </ul>
@@ -117,7 +138,6 @@
           @yield('content')
         </div>
         <!-- /.container-fluid -->
-
         <!-- Sticky Footer -->
         <footer class="sticky-footer">
           <div class="container my-auto">

@@ -16,10 +16,12 @@ class CreateEmpresasTable extends Migration
     {
         Schema::create('empresas', function (Blueprint $table) {
             $table->increments('id_empresa');
-            $table->string('denominacion')->nullable();
+            $table->string('forma_juridica')->nullable();
             $table->string('rubro')->nullable();
-            $table->integer('id_user');
-            $table->boolean('habilitar');
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }

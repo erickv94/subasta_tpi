@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-
-
-use App\Empresa;
 use App\User;
+use App\Empresa;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Caffeinated\Shinobi\Models\Role;
+
 
 class EmpresaController extends Controller
 {
@@ -15,17 +17,17 @@ class EmpresaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(User $user)
-    { 
-       
-        $this->user = Auth::user();
-    }
-
     public function index()
     {
-        //
+        $user = Auth::user();
+        $empresas= DB::table('role_user')->join('users','users.id','=','role_user.user_id')
+        ->join('empresas','users.id','=','empresas.id_user')
+        ->where('role_id', '=', 3)
+        ->where('users.id','<>',$user->id)
+        ->orderBy('users.id','DESC')
+        ->paginate(10);
+        return view('empresas.index',compact('empresas'));
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -34,7 +36,7 @@ class EmpresaController extends Controller
      */
     public function create()
     {
-        //
+        return view('empresas.create');
     }
 
     /**
@@ -45,28 +47,39 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create($request->all());
+        $user->password= bcrypt($request->password);
+        $user->email_verified_at = Carbon::now();
+        $user->save();
+        //Se guarda en la relaciòn muchos a muchos de la tabla role_user
+        $user->roles()->attach(3);
+        // Se guarda en la tabla Empresa
+        $empresa = new Empresa();
+        $empresa->forma_juridica = $request->forma_juridica;
+        $empresa->rubro = $request->rubro;
+        $empresa->id_user = $user->id;
+        $empresa->save();
+        return redirect()->route('login')->with('info','Pronto lo contactaremos');
     }
 
-    
     /**
      * Display the specified resource.
      *
-     * @param  \App\Empresa  $empresa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Empresa $empresa)
     {
-        //
+        return view('empresas.show',compact('empresa'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Empresa  $empresa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empresa $empresa)
+    public function edit($id)
     {
         //
     }
@@ -75,10 +88,10 @@ class EmpresaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Empresa  $empresa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresa $empresa)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -86,11 +99,30 @@ class EmpresaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Empresa  $empresa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empresa $empresa)
+    public function destroy($id)
     {
         //
     }
+    public function deshabilitar($id)
+    {
+        
+        $user = User::findOrFail($id);
+        $user->habilitar=false;
+        $user->save();
+        return redirect()->action('EmpresaController@index')->with('msj2','El perfil de la empresa '.$user->name.' ha sido deshabilitado');
+        
+    }
+    
+    public function habilitar($id)
+    {
+        $user = User::findOrFail($id);
+        $user->habilitar=true;
+        $user->save();
+        return redirect()->action('EmpresaController@index')->with('msj','El perfil de la empresa '.$user->name.' ha sido habilitado');
+    }
+
+    
 }

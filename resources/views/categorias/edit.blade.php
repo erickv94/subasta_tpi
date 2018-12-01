@@ -6,14 +6,14 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    Editar Usuario
+                    Editar Producto
                 </div>
 
                 <div class="card-body">
-                {!! Form::model($user, ['route' => ['users.update', $user->id],
+                    {!! Form::model($categoria, ['route' => ['categorias.update', $categoria->id_categoria],
                     'method' => 'PUT']) !!}
 
-                        @include('users.partials.form')
+                        @include('categorias.partials.form')
                         
                     {!! Form::close() !!}
                 </div>

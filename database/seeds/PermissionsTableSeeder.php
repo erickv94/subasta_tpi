@@ -12,7 +12,7 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        /*
+        
         //Users
         Permission::create([
             'name'          =>   'Navegar usuarios',
@@ -33,6 +33,16 @@ class PermissionsTableSeeder extends Seeder
             'name'          =>   'Eliminar usuario',
             'slug'          =>   'users.destroy',
             'description'   =>   'Eliminar cualquier usuario del sistema',
+        ]);
+        Permission::create([
+            'name'          =>   'Deshabilitar usuario',
+            'slug'          =>   'users.deshabilitar',
+            'description'   =>   'Deshabilitar cualquier usuario del sistema',
+        ]);
+        Permission::create([
+            'name'          =>   'Habilitar usuario',
+            'slug'          =>   'users.habilitar',
+            'description'   =>   'Habilitar cualquier usuario del sistema',
         ]);
 
         //Roles
@@ -61,44 +71,104 @@ class PermissionsTableSeeder extends Seeder
             'slug'          =>   'roles.destroy',
             'description'   =>   'Eliminar cualquier rol del sistema',
         ]);
-        */
 
         //Products
         Permission::create([
             'name'          =>   'Navegar productos',
-            'slug'          =>   'products.index',
+            'slug'          =>   'productos.index',
             'description'   =>   'Lista y navega todos los productos del sistema',
         ]);
         Permission::create([
             'name'          =>   'Ver detalle de producto',
-            'slug'          =>   'products.show',
+            'slug'          =>   'productos.show',
             'description'   =>   'Ver en detalle cada producto del sistema',
         ]);
         Permission::create([
             'name'          =>   'Edición de producto',
-            'slug'          =>   'products.edit',
+            'slug'          =>   'productos.edit',
             'description'   =>   'Editar cualquier dato de un producto del sistema',
         ]);
         Permission::create([
             'name'          =>   'Crear de producto',
-            'slug'          =>   'products.create',
+            'slug'          =>   'productos.create',
             'description'   =>   'Editar cualquier dato de un producto del sistema',
         ]);
         Permission::create([
             'name'          =>   'Eliminar producto',
-            'slug'          =>   'products.destroy',
+            'slug'          =>   'productos.destroy',
             'description'   =>   'Eliminar cualquier producto del sistema',
+        ]);
+        Permission::create([
+            'name'          =>   'Deshabilitar producto',
+            'slug'          =>   'productos.deshabilitar',
+            'description'   =>   'Deshabilitar cualquier producto del sistema',
+        ]);
+        Permission::create([
+            'name'          =>   'Habilitar producto',
+            'slug'          =>   'productos.habilitar',
+            'description'   =>   'Habilitar cualquier producto del sistema',
+        ]);
+        
+        //Empresas
+        Permission::create([
+            'name'          =>   'Ver detalle de empresa',
+            'slug'          =>   'empresas.show',
+            'description'   =>   'Ver en detalle cada empresa del sistema',
+        ]);
+        Permission::create([
+            'name'          =>   'Edición de empresa',
+            'slug'          =>   'empresas.edit',
+            'description'   =>   'Editar cualquier dato de un empresa del sistema',
+        ]);
+        // Clientes
+        Permission::create([
+            'name'          =>   'Ver detalle de cliente',
+            'slug'          =>   'clientes.show',
+            'description'   =>   'Ver en detalle cada cliente del sistema',
+        ]);
+        Permission::create([
+            'name'          =>   'Edición de cliente',
+            'slug'          =>   'clientes.edit',
+            'description'   =>   'Editar cualquier dato de un cliente del sistema',
         ]);
         //Reglas para la subasta
         Permission::create([
             'name'          =>   'Apostar Producto',
-            'slug'          =>   'products.apuesta',
+            'slug'          =>   'productos.apuesta',
             'description'   =>   'Permite apostar un producto',
         ]);
         Permission::create([
             'name'          =>   'Vender Producto',
-            'slug'          =>   'products.venta',
+            'slug'          =>   'productos.venta',
             'description'   =>   'Permite finalizar la apuesta un producto',
         ]);
+         //Categorias
+         Permission::create([
+            'name'          =>   'Navegar categorias',
+            'slug'          =>   'categorias.index',
+            'description'   =>   'Lista y navega todos los categorias del sistema',
+        ]);
+        Permission::create([
+            'name'          =>   'Ver detalle de categoria',
+            'slug'          =>   'categorias.show',
+            'description'   =>   'Ver en detalle cada categoria del sistema',
+        ]);
+        Permission::create([
+            'name'          =>   'Edición de categoria',
+            'slug'          =>   'categorias.edit',
+            'description'   =>   'Editar cualquier dato de un categoria del sistema',
+        ]);
+        Permission::create([
+            'name'          =>   'Crear de categoria',
+            'slug'          =>   'categorias.create',
+            'description'   =>   'Editar cualquier dato de un categoria del sistema',
+        ]);
+        Permission::create([
+            'name'          =>   'Eliminar categoria',
+            'slug'          =>   'categorias.destroy',
+            'description'   =>   'Eliminar cualquier categoria del sistema',
+        ]);
+         
+       
     }
 }

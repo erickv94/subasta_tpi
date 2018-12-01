@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('users.store') }}">
+<form method="POST" action="{{ route('empresas.store') }}">
                         @csrf
                         <input type="hidden" name="role_id" value="3" id="role_id">
                         <div class="form-group row">
@@ -44,19 +44,44 @@
                         
                         
                         <div class="form-group row">
-                            <label for="denominacion" class="col-md-4 col-form-label text-md-right">{{ __('Denominacion') }}</label>
+                            <label for="funcion_social" class="col-md-4 col-form-label text-md-right">{{ __('Forma Juridica') }}</label>
 
                             <div class="col-md-6">
-                                <input id="denominacion" type="denominacion" class="form-control{{ $errors->has('denominacion') ? ' is-invalid' : '' }}" name="denominacion" value="{{ old('denominacion') }}" required>
+                                <input id="forma_juridica" type="forma_juridica" class="form-control{{ $errors->has('forma_juridica') ? ' is-invalid' : '' }}" name="forma_juridica" value="{{ old('forma_juridica') }}">
 
-                                @if ($errors->has('denominacion'))
+                                @if ($errors->has('forma_juridica'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('denominacion') }}</strong>
+                                        <strong>{{ $errors->first('forma_juridica') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-						
+                        <div class="form-group row">
+                            <label for="rubro" class="col-md-4 col-form-label text-md-right">{{ __('Rubro') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="rubro" type="rubro" class="form-control{{ $errors->has('rubro') ? ' is-invalid' : '' }}" name="rubro" value="{{ old('rubro') }}">
+
+                                @if ($errors->has('rubro'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('rubro') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+						<div class="form-group row">
+                            <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Direccion') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="direccion" type="direccion" class="form-control{{ $errors->has('direccion') ? ' is-invalid' : '' }}" name="direccion" value="{{ old('direccion') }}" >
+
+                                @if ($errors->has('direccion'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('direccion') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>

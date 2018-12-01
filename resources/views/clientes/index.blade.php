@@ -6,7 +6,7 @@
   <li class="breadcrumb-item">
     <a href="/home">Home</a>
   </li>
-  <li class="breadcrumb-item active">Empresas</li>
+  <li class="breadcrumb-item active">Clientes</li>
 </ol>
     <div id="content-wrapper">
         <div class="container-fluid">
@@ -14,43 +14,43 @@
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-            Empresas Registradas</div>
+            Clientes Registrados</div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Nombre de Empresa</th>
-                      <th>Denominacion</th>
-                      <th>Rubro</th>
+                      <th>Nombre del Cliente</th>
+                      <th>Username</th>
+                      <th>Telefono</th>
                       <th colspan="3">Acciones</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Nombre de Empresa</th>
-                      <th>Forma Juridica</th>
-                      <th>Rubro</th>
+                      <th>Nombre del Cliente</th>
+                      <th>Username</th>
+                      <th>Telefono</th>
                       <th colspan="3">Acciones</th>
                     </tr>
                   </tfoot>
                   <tbody>
-                    @foreach($empresas as $empresa)
+                    @foreach($clientes as $cliente)
                           <tr>
-                              <td>{{ $empresa->name }}</td>
-                              <td>{{ $empresa->forma_juridica }}</td>
-                              <td>{{ $empresa->rubro }}</td>
-                              @can('empresas.show')
+                              <td>{{ $cliente->name }}</td>
+                              <td>{{ $cliente->username }}</td>
+                              <td>{{ $cliente->telefono }}</td>
+                              @can('clientes.show')
                               <td width="8px">
-                                  <a type="button" class="btn btn-sm btn-info pull-right" href="{{ route('empresas.show', $empresa->id_empresa) }}">
+                                <a type="button" class="btn btn-sm btn-info pull-right" href="{{ route('clientes.show', $cliente->id) }}">
                                   <i class="far fa-eye"></i>Ver
                                   </a>
                               </td>
                               @endcan
-                              @if($empresa->habilitar)
+                              @if($cliente->habilitar)
                               @can('users.deshabilitar')
                                 <td width="8px">
-                                <a type="button" class="btn btn-sm  btn-warning pull-right" href="{{ route('empresas.deshabilitar', $empresa->id) }}">
+                                <a type="button" class="btn btn-sm  btn-warning pull-right" href="{{ route('clientes.deshabilitar', $cliente->id) }}">
                                 <i class="far fa-tired"></i> Deshabilitar Usuario
                                   </a>
                               </td>
@@ -58,17 +58,18 @@
                               @else
                               @can('users.habilitar')
                                 <td width="8px">
-                                  <a type="button" class="btn btn-sm btn-success pull-right" href="{{ route('empresas.habilitar', $empresa->id) }}">
-                                  <i class="fas fa-smile-beam"></i> Habilitar Usuario
+                                  <a type="button" class="btn btn-sm btn-success pull-right" href="{{ route('clientes.habilitar', $cliente->id) }}">
+                                  <i class="fas fa-smile-beam"></i >Habilitar Usuario
                                     </a>
                                 </td>
-                                @endcan
+                              @endcan
+                                
                               @endif
                           </tr>
                           @endforeach
                   </tbody>
                 </table>
-                {{ $empresas->render() }}
+                {{ $clientes->render() }}
               </div>
             </div>
           </div>

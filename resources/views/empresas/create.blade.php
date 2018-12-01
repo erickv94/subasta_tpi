@@ -23,13 +23,14 @@
                 <div class="login-form login-area">
                     <h3>{{ __('Registro para Empresas') }}</h3>
                     <br>
-                    {{ Form::open(['route' => 'users.store']) }}
+                    {{ Form::open(['route' => 'empresas.store']) }}
                         @include('empresas.partials.form')
                     {{ Form::close() }}
                 </div>
             </div>
         </div>
-        
     </div>
 </section>
+<br>
+<br>
 @endsection

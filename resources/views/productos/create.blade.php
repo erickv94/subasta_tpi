@@ -9,10 +9,10 @@
                 </div>
 
                 <div class="card-body">
-                    <div class="col-lg-8 col-md-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-xs-12">
                         <div class="login-form login-area">
-                            {{ Form::open(['route' => 'products.store']) }}
-                                @include('products.partials.form')
+                            {{ Form::open(['route' => 'productos.store']) }}
+                                @include('productos.partials.form')
                             {{ Form::close() }}
                         </div>
                     </div>
@@ -21,4 +21,6 @@
         </div>
     </div>
 </div>
+<br>
+<br>
 @endsection

@@ -19,15 +19,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Rutas para registro de usuarios de Empresa y Cliente
-Route::get('empresas/create', 'UserController@createEmpresa')->name('empresas.create');
-Route::get('clientes/create', 'UserController@createCliente')->name('clientes.create');
-Route::post('users/store', 'UserController@store')->name('users.store');
+Route::get('empresas/create', 'EmpresaController@create')->name('crearEmpresa');
+Route::get('clientes/create', 'ClienteController@create')->name('crearCliente');
+Route::post('empresas/store', 'EmpresaController@store')->name('empresas.store');
+Route::post('clientes/store', 'ClienteController@store')->name('clientes.store');
+
 //Routes
 
 Route::middleware(['auth'])->group(function(){
     //Roles
 	Route::post('roles/store', 'RoleController@store')->name('roles.store')
-        ->middleware('permission:roles.create');
+                ->middleware('permission:roles.create');
         Route::get('roles', 'RoleController@index')->name('roles.index')
                 ->middleware('permission:roles.index');
         Route::get('roles/create', 'RoleController@create')->name('roles.create')
@@ -51,19 +53,62 @@ Route::middleware(['auth'])->group(function(){
                 ->middleware('permission:users.destroy');
         Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit')
                 ->middleware('permission:users.edit');
+         //Empresas
+        Route::get('empresas', 'EmpresaController@index')->name('empresas.index')
+                ->middleware('permission:empresas.index');
+        Route::get('empresas/{empresa}', 'EmpresaController@show')->name('empresas.show')
+                ->middleware('permission:empresas.show');
+        Route::get('empresas/habilitar/{id}', 'EmpresaController@habilitar')->name('empresas.habilitar')
+                ->middleware('permission:users.habilitar');
+        Route::get('empresas/deshabilitar/{id}', 'EmpresaController@deshabilitar')->name('empresas.deshabilitar')
+                ->middleware('permission:users.deshabilitar');
+          //Clientes
+        Route::get('clientes', 'ClienteController@index')->name('clientes.index')
+               ->middleware('permission:clientes.index');
+        Route::get('clientes/{role}', 'ClienteController@show')->name('clientes.show')
+               ->middleware('permission:clientes.show');
+        Route::get('clientes/habilitar/{id}', 'ClienteController@habilitar')->name('clientes.habilitar')
+               ->middleware('permission:users.habilitar');
+        Route::get('clientes/deshabilitar/{id}', 'ClienteController@deshabilitar')->name('clientes.deshabilitar')
+               ->middleware('permission:users.deshabilitar');
+
+        //Categorias
+        Route::post('categorias/store', 'CategoriaController@store')->name('categorias.store')
+               ->middleware('permission:categorias.create');
+        Route::get('categorias', 'CategoriaController@index')->name('categorias.index')
+               ->middleware('permission:categorias.index');
+        Route::get('categorias/create', 'CategoriaController@create')->name('categorias.create')
+               ->middleware('permission:categorias.create');
+        Route::put('categorias/{categoria}', 'CategoriaController@update')->name('categorias.update')
+               ->middleware('permission:categorias.edit');
+        Route::get('categorias/{slug}', 'CategoriaController@show')->name('categorias.show')
+               ->middleware('permission:categorias.show'); //URL AMIGABLE
+        Route::delete('categorias/{categoria}', 'CategoriaController@destroy')->name('categorias.destroy')
+               ->middleware('permission:productos.destroy');
+        Route::get('categorias/{slug}/edit', 'CategoriaController@edit')->name('categorias.edit')
+               ->middleware('permission:categorias.edit');
+        
+        
         //Products
-        Route::post('products/store', 'ProductController@store')->name('products.store')
-                ->middleware('permission:products.create');
-        Route::get('products', 'ProductController@index')->name('products.index')
-                ->middleware('permission:products.index');
-        Route::get('products/create', 'ProductController@create')->name('products.create')
-                ->middleware('permission:products.create');
-        Route::put('products/{product}', 'ProductController@update')->name('products.update')
-                ->middleware('permission:products.edit');
-        Route::get('products/{product}', 'ProductController@show')->name('products.show')
-                ->middleware('permission:products.show');
-        Route::delete('products/{product}', 'ProductController@destroy')->name('products.destroy')
-                ->middleware('permission:products.destroy');
-        Route::get('products/{product}/edit', 'ProductController@edit')->name('products.edit')
-                ->middleware('permission:products.edit');
+        Route::post('productos/store', 'ProductoController@store')->name('productos.store')
+                ->middleware('permission:productos.create');
+        Route::get('productos', 'ProductoController@index')->name('productos.index')
+                ->middleware('permission:productos.index');
+        Route::get('productos/create', 'ProductoController@create')->name('productos.create')
+                ->middleware('permission:productos.create');
+        Route::put('productos/{producto}', 'ProductoController@update')->name('productos.update')
+                ->middleware('permission:productos.edit');
+        Route::get('productos/{slug}', 'ProductoController@show')->name('productos.show')
+                ->middleware('permission:productos.show'); //URL AMIGABLE
+        Route::delete('productos/{producto}', 'ProductoController@destroy')->name('productos.destroy')
+                ->middleware('permission:productos.destroy');
+        Route::get('productos/{producto}/edit', 'ProductoController@edit')->name('productos.edit')
+                ->middleware('permission:productos.edit');
+        Route::get('productos/habilitar/{id}', 'ProductoController@habilitar')->name('productos.habilitar')
+                ->middleware('permission:productos.habilitar');
+        Route::get('productos/deshabilitar/{id}', 'ProductoController@deshabilitar')->name('productos.deshabilitar')
+                ->middleware('permission:productos.deshabilitar');
+        
+       
+        
 });

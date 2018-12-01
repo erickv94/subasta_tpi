@@ -39,26 +39,16 @@
                             <td>{{ $role->name }}</td>
                             @can('roles.show')
                             <td width="8px">
-                                <button type="button" class="btn btn-sm btn-primary" href="{{ route('roles.show', $role->id) }}">
-                                  Ver
-                                </button>
+                              <a type="button" class="btn btn-sm btn-info pull-right" href="{{ route('roles.show', $role->id) }}">
+                                <i class="far fa-eye"></i>Ver
+                                </a>
                             </td>
                             @endcan
                             @can('roles.edit')
                             <td width="8px">
-                                <button type="button" class="btn btn-sm btn-info" href="{{ route('roles.edit', $role->id) }}">
-                                  Editar
-                                </button>
-                            </td>
-                            @endcan
-                            @can('roles.destroy')
-                            <td width="8px">
-                                {!! Form::open(['route' => ['roles.destroy', $role->id],
-                                'method' => 'DELETE']) !!}
-                                    <button class="btn btn-sm btn-danger">
-                                        Eliminar
-                                    </button>
-                                {!! Form::close() !!}
+                                <a type="button" class="btn btn-sm btn-primary pull-right" href="{{ route('roles.edit', $role->id) }}">
+                                <i class="fas fa-save"></i> Editar
+                                </a>
                             </td>
                             @endcan
                         </tr>

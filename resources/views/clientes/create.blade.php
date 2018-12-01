@@ -23,7 +23,7 @@
                 <div class="login-form login-area">
                     <h3>{{ __('Registro para Clientes') }}</h3>
                     <br>
-                    {{ Form::open(['route' => 'users.store']) }}
+                    {{ Form::open(['route' => 'clientes.store']) }}
                         @include('clientes.partials.form')
                     {{ Form::close() }}
                 </div>
@@ -31,4 +31,6 @@
         </div>
     </div>
 </section>
+<br>
+<br>
 @endsection

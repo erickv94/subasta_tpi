@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','username',
+        'name', 'email', 'password','username','direccion','habilitar'
     ];
 
     /**
@@ -29,20 +29,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function scopeEmail($query, $email)
-    {
-        return $query->where('email', $email);
-    }
 
-    public function empresa()
+    public function empresas()
     {
         //Relacionar con la tabla empresa
-        return $this->hasOne('App\Empresa', 'id_user', 'id');
+        return $this->hasOne(Empresa::class,'id_user','id');
     }
-    public function cliente()
+    public function clientes()
     {
        //Relacionar con la tabla cliente
-       return $this->hasOne('App\Cliente', 'id_user', 'id');
+       return $this->hasOne(Cliente::class,'id_user','id');
     }
     
 }
