@@ -77,12 +77,22 @@
                     </form>
                     @if (session('info'))
                     <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
+                            <div class="col-md-12 col-md-offset-4">
                                 <div class="alert alert-success">
                                     {{ session('info') }}
                                 </div>
                             </div>
                     </div>
+                    @endif
+                    @if (session('danger'))
+                    <div class="form-group">
+                            <div class="col-md-12 col-md-offset-4">
+                                <div class="alert alert-danger">
+                                    {{ session('danger') }}
+                                </div>
+                            </div>
+                    </div>
+                    
                     @endif
                 </div>
             </div>

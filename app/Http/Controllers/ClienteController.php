@@ -124,6 +124,6 @@ class ClienteController extends Controller
         $user = User::findOrFail($id);
         $user->habilitar=true;
         $user->save();
-        return redirect()->action('ClienteController@index')->with('msj','El perfil del cliente'.$user->name.' ha sido habilitado');
+        return redirect()->action('ClienteController@index')->with('msj','El perfil del cliente '.$user->name.' ha sido habilitado');
     }
 }

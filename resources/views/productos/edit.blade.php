@@ -13,7 +13,7 @@
                     {!! Form::model($producto, ['route' => ['productos.update', $producto->id_producto],
                     'method' => 'PUT']) !!}
 
-                        @include('productos.partials.form')
+                        @include('productos.partials.formEdit')
                         
                     {!! Form::close() !!}
                 </div>

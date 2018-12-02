@@ -63,6 +63,8 @@ class Kernel extends HttpKernel
 
         'role'          =>\Caffeinated\Shinobi\Middleware\UserHasRole::class,
         'permission'    =>\Caffeinated\Shinobi\Middleware\UserHasPermission::class,
+
+        'verificacionUsuario' =>\App\Http\Middleware\VerificacionUsuario::class,
     ];
 
     /**
