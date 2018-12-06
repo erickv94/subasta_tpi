@@ -3,20 +3,20 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/fonts/line-icons.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/slicknav.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-switcher.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.carousel.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/bootstrap.min.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/fonts/line-icons.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/slicknav.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/color-switcher.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/animate.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/owl.carousel.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/main.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/responsive.css')   }}">
         <!-- FAVICON-->
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png')   }}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png')   }}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png')   }}">
-        <link rel="manifest" href="{{ asset('favicon/site.webmanifest')   }}">
-        <link rel="mask-icon" href="{{ asset('favicon/safari-pinned-tab.svg')   }}" color="#5bbad5">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/favicon/apple-touch-icon.png')   }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/favicon/favicon-32x32.png')   }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/favicon/favicon-16x16.png')   }}">
+        <link rel="manifest" href="{{ asset('/favicon/site.webmanifest')   }}">
+        <link rel="mask-icon" href="{{ asset('/favicon/safari-pinned-tab.svg')   }}" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
     </head>
@@ -39,10 +39,7 @@
                             <a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a>
                             <a class="google" href="#"><i class="lni-google-plus"></i></a>
                         </div>
-                    <div class="header-top-right float-right">
-                        <a href="" class="header-top-button"><i class="lni-lock"></i> Indicaciones</a> |
-                        <a href="" class="header-top-button"><i class="lni-pencil"></i> Recomendaciones</a>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -55,7 +52,7 @@
                         <span class="lni-menu"></span>
                         <span class="lni-menu"></span>
                     </button>
-                    <a href="{{ url('/') }}" class="navbar-brand"><img src="{{ asset('assets//img/logo.png')   }}" alt=""></a>
+                    <a href="{{ url('/') }}" class="navbar-brand"><img src="{{ asset('/assets//img/logo.png')   }}" alt=""></a>
                 </div>
                 <div class="collapse navbar-collapse" id="main-navbar">
                 <?php function activeMenu($url){
@@ -105,7 +102,7 @@
                     <a href="{{ url('/') }}">Home</a>
                 </li>
                 <li>
-                    <a href="">Productos</a>
+                    <a href="{{ url('/productosSubasta') }">Productos</a>
                 </li>
                 <li>
                     <a href="">Contactanos</a>
