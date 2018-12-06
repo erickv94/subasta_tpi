@@ -102,7 +102,7 @@
                     <a href="{{ url('/') }}">Home</a>
                 </li>
                 <li>
-                    <a href="{{ url('/productosSubasta') }">Productos</a>
+                    <a href="{{ url('/productosSubasta') }}">Productos</a>
                 </li>
                 <li>
                     <a href="">Contactanos</a>
