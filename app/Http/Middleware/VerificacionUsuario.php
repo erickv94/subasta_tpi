@@ -27,7 +27,7 @@ class VerificacionUsuario
     {
         if($this->auth->user()->habilitar == false){
             $this->auth->logout();
-            return back()->with('danger','Lo sentimos su perfil ha sido deshabilitado');
+            return back()->with('danger','Lo sentimos su perfil esta deshabilitado');
         }
         return $next($request);
     }

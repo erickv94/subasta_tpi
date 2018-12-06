@@ -58,14 +58,18 @@
                     <a href="{{ url('/') }}" class="navbar-brand"><img src="{{ asset('assets//img/logo.png')   }}" alt=""></a>
                 </div>
                 <div class="collapse navbar-collapse" id="main-navbar">
+                <?php function activeMenu($url){
+                    return request()->is($url) ? 'active' : '';
+                }
+                ?>
                     <ul class="navbar-nav mr-auto w-100 justify-content-center">
-                        <li class="nav-item dropdown active">
+                        <li class="nav-item dropdown {{activeMenu('/')}}">
                             <a class="nav-link dropdown-toggle" href="{{ url('/') }}">
                                 Home
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
+                        <li class="nav-item {{activeMenu('productosSubasta')}}">
+                            <a class="nav-link" href="{{ url('/productosSubasta') }}">
                                 Productos
                             </a>
                         </li>
@@ -75,12 +79,12 @@
                             Contactanos
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{activeMenu('login')}}">
                             <a class="nav-link" href="{{ route('login') }}">
                             Inicio de Sesión
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Registrese
                             </a>

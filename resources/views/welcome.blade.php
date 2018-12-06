@@ -8,41 +8,14 @@
                     <div class="col-md-12 col-lg-9 col-xs-12 text-center">
                         <div class="contents">
                             <h1 class="head-title">Bienvenido a Subastas En linea <span class="year">Sivarchadas</span></h1>
-                            <p>Debe estar registrado para poder comprar un producto pero puede revisar la lista de productos</p>
-                            <div class="search-bar">
-                                <div class="search-inner">
-                                    <form class="search-form">
-                                        <div class="form-group">
-                                            <input type="text" name="customword" class="form-control" placeholder="What are you looking for?">
-                                        </div>
-                                            <div class="form-group inputwithicon">
-                                                <div class="select">
-                                                    <select>
-                                                        <option value="none">Locación</option>
-                                                        <option value="none">Sonsonate</option>
-                                                        <option value="none">San Salvador</option>
-                                                        <option value="none">Santa Ana</option>
-                                                        <option value="none">San Miguel</option>
-                                                    </select>
-                                                </div>
-                                                 <i class="lni-target"></i>
-                                            </div>
-                                            <div class="form-group inputwithicon">
-                                                    <div class="select">
-                                                        <select>
-                                                            <option value="none">Seleccione Categoria</option>
-                                                            <option value="none">Carro</option>
-                                                            <option value="none">Muebles</option>
-                                                            <option value="none">Pinturas</option>
-                                                            
-                                                        </select>
-                                                    </div>
-                                                    <i class="lni-menu"></i>
-                                            </div>
-                                            <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
-                                    </form>
-                                </div>
-                            </div>
+                            <p> Es una empresa que permite que otras empresas entren en el mercado de 
+                                las subastas en linea .</p>
+                            <p>
+                            La casa de subastas online de más rápido crecimiento en El Salvador,
+                             con gran variedad de artículos singulares. 
+                             ¡Visita nuestras subastas y haz tus pujas!
+                            </p>
+                            
                         </div>
                     </div>
                 </div>

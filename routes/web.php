@@ -17,7 +17,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verificacionUsuario');
-
+Route::get('/productosSubasta', 'SubastaController@productosSubasta')->name('productosSubasta');
+Route::get('/detalle/{slug}', 'SubastaController@show')->name('detalleProducto');
 //Rutas para registro de usuarios de Empresa y Cliente
 Route::get('empresas/create', 'EmpresaController@create')->name('crearEmpresa');
 Route::get('clientes/create', 'ClienteController@create')->name('crearCliente');

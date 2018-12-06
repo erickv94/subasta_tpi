@@ -16,5 +16,6 @@ $factory->define(App\Producto::class, function (Faker $faker) {
         'file_img' => $faker->imageUrl($width=1200,$height=400),
         'fecha_publicacion' =>$faker->date,
         'fecha_expiracion' =>$faker->date,
+        'publicacion' => true,
     ];
 });
