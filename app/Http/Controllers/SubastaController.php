@@ -14,12 +14,13 @@ class SubastaController extends Controller
             ->where('productos.publicacion','=',true)
             ->paginate(6);
         $categorias = Categoria::get();
-        return view('subastas.home',compact('productos','categorias'));
+        return view('subastas.index',compact('productos','categorias'));
     }
-
+   
     public function show($slug)
     {
         $producto = Producto::where('slug',$slug)->first();
         return view('subastas.show',compact('producto'));
     }
+   
 }

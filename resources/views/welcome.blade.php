@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xs-12">
-                    <img class="img-fluid" src="{{asset('assets/img/about/about.png')}}" alt="">
+                    <img class="img-fluid" src="{{secure_asset('assets/img/about/about.png')}}" alt="">
                 </div>
             </div>
         </div>

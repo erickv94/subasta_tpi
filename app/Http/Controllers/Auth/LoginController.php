@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -35,5 +35,18 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    //Modificación del metodo para que entre solamente si tiene varios roles 
+    //eso significaria que tiene administracion
+    public function redirectPath()
+    {
+        $prueba =DB::table('role_user')
+        ->where('user_id', '=', auth()->user()->id)
+        ->count();
+        //dd($prueba);
+        if($prueba >= 2){
+            return '/home';
+        }
+        return '/';
     }
 }

@@ -4,13 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/bootstrap.min.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/fonts/line-icons.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{  asset('assets/fonts/line-icons.css')   }}">
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/slicknav.css')   }}">
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/color-switcher.css')   }}">
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/animate.css')   }}">
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/owl.carousel.css')   }}">
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/main.css')   }}">
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/responsive.css')   }}">
+        
         <!-- FAVICON-->
         <link rel="apple-touch-icon" sizes="180x180" href="{{ secure_asset('/favicon/apple-touch-icon.png')   }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ secure_asset('/favicon/favicon-32x32.png')   }}">
@@ -59,6 +60,7 @@
                     return request()->is($url) ? 'active' : '';
                 }
                 ?>
+                @if (Auth::guest())
                     <ul class="navbar-nav mr-auto w-100 justify-content-center">
                         <li class="nav-item dropdown {{activeMenu('/')}}">
                             <a class="nav-link dropdown-toggle" href="{{ url('/') }}">
@@ -91,6 +93,41 @@
                             </div>
                         </li>
                     </ul>
+                    @else
+                    <ul class="navbar-nav mr-auto w-100 justify-content-center">
+                        <li class="nav-item dropdown {{activeMenu('/')}}">
+                            <a class="nav-link dropdown-toggle" href="{{ url('/') }}">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item {{activeMenu('productosSubasta')}}">
+                            <a class="nav-link" href="{{ url('/productosSubasta') }}">
+                                Productos
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                            Mis Productos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                            Contactanos
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->name }} 
+                            </a>
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item" href="">Mi perfil</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">{{ __('Logout') }}</a>
+                            </div>
+                        </li>
+                  
+                    </ul>
+                    @endif
                     <div class="post-btn">
                         <a class="btn btn-common" href="post-ads.html"><i class="lni-pencil-alt"></i> Post an Ad</a>
                     </div>
@@ -129,7 +166,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-4 col-xs-6 col-mb-12">
                         <div class="widget">
-                            <div class="footer-logo"><img src="{{ secure_asset('assets//img/logo3.png')   }}" alt="logotipo" width="200" height="100"></div>
+                            <div class="footer-logo"><img src="{{ secure_asset('assets/img/logo3.png')   }}" alt="logotipo" width="200" height="100"></div>
                         <div class="textwidget">
                         <p>Subastas Online</p>
                     </div>
@@ -158,18 +195,39 @@
             </div>
 
     </section>
-            <div id="copyright">
+        <div id="copyright">
             <div class="container">
-            <div class="row">
-            <div class="col-md-12">
-            <div class="site-info text-center">
-            <p><a rel="nofollow">Copyright Subasta</a></p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                            <p><a rel="nofollow">Copyright Subasta</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Listo para salir?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Ha seleccionado "Logout" desea cerrar sesión</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary"  href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+                </form>
             </div>
             </div>
-            </div>
-            </div>
-            </div>
-
+        </div>
+        </div>
     </footer>
 
         <script data-cfasync="false" src="{{ secure_asset('assets/js/email-decode.min.js')   }}"></script><script src="{{ secure_asset('assets/js/jquery-min.js')   }}"></script>

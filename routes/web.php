@@ -16,8 +16,9 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verificacionUsuario');
+
 Route::get('/productosSubasta', 'SubastaController@productosSubasta')->name('productosSubasta');
+Route::get('/homeCliente', 'SubastaController@index')->name('homeCliente');
 Route::get('/detalle/{slug}', 'SubastaController@show')->name('detalleProducto');
 //Rutas para registro de usuarios de Empresa y Cliente
 Route::get('empresas/create', 'EmpresaController@create')->name('crearEmpresa');
@@ -25,6 +26,7 @@ Route::get('clientes/create', 'ClienteController@create')->name('crearCliente');
 Route::post('empresas/store', 'EmpresaController@store')->name('empresas.store');
 Route::post('clientes/store', 'ClienteController@store')->name('clientes.store');
 
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verificacionUsuario');
 //Routes
 
 Route::middleware(['auth'])->group(function(){
@@ -109,6 +111,7 @@ Route::middleware(['auth'])->group(function(){
                 ->middleware('permission:productos.habilitar');
         Route::get('productos/deshabilitar/{id}', 'ProductoController@deshabilitar')->name('productos.deshabilitar')
                 ->middleware('permission:productos.deshabilitar');
+        //Ingreso de Cliente
         
        
         
