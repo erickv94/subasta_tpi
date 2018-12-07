@@ -40,11 +40,11 @@ class LoginController extends Controller
     //eso significaria que tiene administracion
     public function redirectPath()
     {
-        $prueba =DB::table('role_user')
+        $conteo =DB::table('role_user')
         ->where('user_id', '=', auth()->user()->id)
+        ->where('role_id', '=', 3)
         ->count();
-        //dd($prueba);
-        if($prueba >= 2){
+        if($conteo == 1){
             return '/home';
         }
         return '/';

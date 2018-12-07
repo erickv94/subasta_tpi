@@ -74,7 +74,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/contacto">
                             Contactanos
                             </a>
                         </li>
@@ -92,6 +92,28 @@
                             <a class="dropdown-item" href="{{ route('crearCliente') }}">Registrese como Cliente</a>
                             </div>
                         </li>
+                    </ul>
+
+                    <ul class="mobile-menu">
+                    <li>
+                        <a href="{{ url('/') }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/productosSubasta') }}">Productos</a>
+                    </li>
+                    <li>
+                        <a href="/contacto">Contactanos</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('login') }}">Inicio de Sesión</a>
+                    </li>
+                    <li>
+                        <a href="">Registrese</a>
+                            <ul class="dropdown">
+                                <li><a href="{{ route('crearEmpresa') }}">Registrese como Empresa</a></li>
+                                <li><a href="{{ route('crearCliente') }}">Registrese como Cliente</a></li>
+                            </ul>
+                    </li>
                     </ul>
                     @else
                     <ul class="navbar-nav mr-auto w-100 justify-content-center">
@@ -113,7 +135,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                            Contactanos
+                            Mi Perfil
                             </a>
                         </li>
                         <li class="nav-item dropdown ">
@@ -121,11 +143,32 @@
                             {{ Auth::user()->name }} 
                             </a>
                             <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">Mi perfil</a>
+                           
                             <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">{{ __('Logout') }}</a>
                             </div>
                         </li>
                   
+                    </ul>
+                    <ul class="mobile-menu">
+                    <li>
+                        <a href="{{ url('/') }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/productosSubasta') }}">Productos</a>
+                    </li>
+                    <li>
+                        <a href="">Mis Productos</a>
+                    </li>
+                    <li>
+                        <a href="">Mi Perfil</a>
+                    </li>
+                   
+                    <li>
+                        <a href="">{{ Auth::user()->name }} </a>
+                            <ul class="dropdown">
+                                <li><a href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">{{ __('Logout') }}</a></li>
+                            </ul>
+                    </li>
                     </ul>
                     @endif
                     <div class="post-btn">
@@ -133,28 +176,8 @@
                     </div>
                 </div>
             </div>
-
-            <ul class="mobile-menu">
-                <li>
-                    <a href="{{ url('/') }}">Home</a>
-                </li>
-                <li>
-                    <a href="{{ url('/productosSubasta') }}">Productos</a>
-                </li>
-                <li>
-                    <a href="">Contactanos</a>
-                </li>
-                <li>
-                    <a href="{{ route('login') }}">Inicio de Sesión</a>
-                </li>
-                <li>
-                    <a href="#">Registrese</a>
-                        <ul class="dropdown">
-                            <li><a href="{{ route('crearEmpresa') }}">Registrese como Empresa</a></li>
-                            <li><a href="{{ route('crearCliente') }}">Registrese como Cliente</a></li>
-                        </ul>
-                </li>
-            </ul>
+            
+            
 
         </nav>
 
