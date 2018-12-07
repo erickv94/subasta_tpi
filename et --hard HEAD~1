@@ -1,0 +1,101 @@
+[33mcommit 5ba001b7c6bc75e01ad6af9a27655446687577c2[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Thu Dec 6 21:39:17 2018 +0000
+
+    problema http
+
+[33mcommit 7ed042c14bce903ee6f1b24e2bcf0f8b0b98bc7f[m[33m ([m[1;31mheroku/master[m[33m)[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Thu Dec 6 20:41:02 2018 +0000
+
+    Problema en vista principal 2
+
+[33mcommit 130dcf497ccac4c4751a9e5b618bbef2cf0e8255[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Thu Dec 6 20:39:28 2018 +0000
+
+    Problema en vista principal
+
+[33mcommit c1f80a76afc75cb0822325329a59b73c82cc4c78[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Thu Dec 6 17:33:14 2018 +0000
+
+    Faker
+
+[33mcommit 7c08fd128addccdcbc88d45c4ff71ceb6a6ee283[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Thu Dec 6 17:08:58 2018 +0000
+
+    Tercera prueba
+
+[33mcommit c2c4df81937a9d3f0e792a8be816ce5792e15c88[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Thu Dec 6 16:55:17 2018 +0000
+
+    Segundo Commit
+
+[33mcommit 8ea795ec615fe60bda658e326488fc1623c55253[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Thu Dec 6 16:48:23 2018 +0000
+
+    Procfile
+
+[33mcommit a3ed692f1986cf60e0e4a420f6e7721510410074[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Thu Dec 6 16:30:34 2018 +0000
+
+    Problema con llave
+
+[33mcommit 48b8f8ed2ff11d45c5a4f58b553e4aae7131ffb1[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Thu Dec 6 10:23:08 2018 -0600
+
+    Problema de llave
+
+[33mcommit 35425e7d8cbc447923ac53dd2c0568aaebe8c921[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Thu Dec 6 10:11:07 2018 -0600
+
+    Para deploy
+
+[33mcommit e44e14e90ed940c37f4624b60a54f8d1042d7342[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Thu Dec 6 09:57:26 2018 -0600
+
+    Agregar Procfile for Heroku
+
+[33mcommit c697b04a4d8bd53fca2389701edcf4319edbaa97[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Thu Dec 6 09:55:16 2018 -0600
+
+    Proyecto sivarcachadas
+
+[33mcommit d2373af5c03123d102e2cf494bccb9ca31a6552a[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Sun Dec 2 01:28:05 2018 +0000
+
+    Verificacion de usuario
+
+[33mcommit b67a1f24ee111ecd7665001bf461bbde04ef83c0[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Sat Dec 1 21:26:37 2018 +0000
+
+    Request de Producto,Empresa,Cliente y Rol
+
+[33mcommit fa9d6145ac24b9ed24dc0319e01471872a7e8440[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Sat Dec 1 01:42:50 2018 +0000
+
+    Panel de Administración de Categorias y Productos
+
+[33mcommit b8fd15656014fbafdd0a5ab2931a567090eed621[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Sun Nov 25 16:45:47 2018 +0000
+
+    Agregar el registro de Empresa y Cliente
+
+[33mcommit 4217eddb480cfc4b80d3435bcef0fd16de9def04[m
+Author: yaneth94 <yanethvillatoro444@yahoo.com>
+Date:   Sun Nov 11 12:37:06 2018 -0600
+
+    Commit inicial

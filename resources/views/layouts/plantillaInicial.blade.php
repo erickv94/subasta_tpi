@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/bootstrap.min.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/fonts/line-icons.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/slicknav.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/color-switcher.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/animate.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/owl.carousel.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/main.css')   }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/responsive.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/bootstrap.min.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/fonts/line-icons.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/slicknav.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/color-switcher.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/animate.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/owl.carousel.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/main.css')   }}">
+        <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/responsive.css')   }}">
         <!-- FAVICON-->
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/favicon/apple-touch-icon.png')   }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/favicon/favicon-32x32.png')   }}">
@@ -173,16 +173,16 @@
     </footer>
 
         <script data-cfasync="false" src="{{ asset('assets/js/email-decode.min.js')   }}"></script><script src="{{ asset('assets/js/jquery-min.js')   }}"></script>
-        <script src="{{ asset('assets/js/popper.min.js')   }}"></script>
-        <script src="{{ asset('assets/js/bootstrap.min.js')   }}"></script>
-        <script src="{{ asset('assets/js/jquery.counterup.min.js')   }}"></script>
-        <script src="{{ asset('assets/js/waypoints.min.js')   }}"></script>
-        <script src="{{ asset('assets/js/wow.js')   }}"></script>
-        <script src="{{ asset('assets/js/owl.carousel.min.js')   }}"></script>
-        <script src="{{ asset('assets/js/jquery.slicknav.js')   }}"></script>
-        <script src="{{ asset('assets/js/main.js')   }}"></script>
-        <script src="{{ asset('assets/js/form-validator.min.js')   }}"></script>
-        <script src="{{ asset('assets/js/contact-form-script.min.js')   }}"></script>
-        <script src="{{ asset('assets/js/summernote.js')   }}"></script>
+        <script src="{{ secure_asset('assets/js/popper.min.js')   }}"></script>
+        <script src="{{ secure_asset('assets/js/bootstrap.min.js')   }}"></script>
+        <script src="{{ secure_asset('assets/js/jquery.counterup.min.js')   }}"></script>
+        <script src="{{ secure_asset('assets/js/waypoints.min.js')   }}"></script>
+        <script src="{{ secure_asset('assets/js/wow.js')   }}"></script>
+        <script src="{{ secure_asset('assets/js/owl.carousel.min.js')   }}"></script>
+        <script src="{{ secure_asset('assets/js/jquery.slicknav.js')   }}"></script>
+        <script src="{{ secure_asset('assets/js/main.js')   }}"></script>
+        <script src="{{ secure_asset('assets/js/form-validator.min.js')   }}"></script>
+        <script src="{{ secure_asset('assets/js/contact-form-script.min.js')   }}"></script>
+        <script src="{{ secure_asset('assets/js/summernote.js')   }}"></script>
     </body>
 </html>
