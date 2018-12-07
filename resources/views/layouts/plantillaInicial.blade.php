@@ -12,11 +12,11 @@
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/main.css')   }}">
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/responsive.css')   }}">
         <!-- FAVICON-->
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/favicon/apple-touch-icon.png')   }}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/favicon/favicon-32x32.png')   }}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/favicon/favicon-16x16.png')   }}">
-        <link rel="manifest" href="{{ asset('/favicon/site.webmanifest')   }}">
-        <link rel="mask-icon" href="{{ asset('/favicon/safari-pinned-tab.svg')   }}" color="#5bbad5">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ secure_asset('/favicon/apple-touch-icon.png')   }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ secure_asset('/favicon/favicon-32x32.png')   }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ secure_asset('/favicon/favicon-16x16.png')   }}">
+        <link rel="manifest" href="{{ secure_asset('/favicon/site.webmanifest')   }}">
+        <link rel="mask-icon" href="{{ secure_asset('/favicon/safari-pinned-tab.svg')   }}" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
     </head>
@@ -52,7 +52,7 @@
                         <span class="lni-menu"></span>
                         <span class="lni-menu"></span>
                     </button>
-                    <a href="{{ url('/') }}" class="navbar-brand"><img src="{{ asset('/assets//img/logo.png')   }}" alt=""></a>
+                    <a href="{{ url('/') }}" class="navbar-brand"><img src="{{ secure_asset('/assets//img/logo.png')   }}" alt=""></a>
                 </div>
                 <div class="collapse navbar-collapse" id="main-navbar">
                 <?php function activeMenu($url){
@@ -129,7 +129,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-4 col-xs-6 col-mb-12">
                         <div class="widget">
-                            <div class="footer-logo"><img src="{{ asset('assets//img/logo3.png')   }}" alt="logotipo" width="200" height="100"></div>
+                            <div class="footer-logo"><img src="{{ secure_asset('assets//img/logo3.png')   }}" alt="logotipo" width="200" height="100"></div>
                         <div class="textwidget">
                         <p>Subastas Online</p>
                     </div>
@@ -149,7 +149,7 @@
                             <strong><i class="lni-phone"></i></strong><span>+1 555 444 66647 <br> +1 555 444 66647</span>
                         </li>
                         <li>
-                            <strong><i class="lni-envelope"></i></strong><span><a href="http://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9efdf1f0eafffdeadef3fff7f2b0fdf1f3">[email&#160;protected]</a> <br> <a href="http://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e4979194948b9690a489858d88ca878b89">[email&#160;protected]</a></span>
+                            <strong><i class="lni-envelope"></i></strong><span><a href="https://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9efdf1f0eafffdeadef3fff7f2b0fdf1f3">[email&#160;protected]</a> <br> <a href="https://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e4979194948b9690a489858d88ca878b89">[email&#160;protected]</a></span>
                         </li>
                         <li>
                             <strong><i class="lni-map-marker"></i></strong><span><a href="#">9870 St Vincent Place, Glasgow, DC 45 <br>Fr 45</a></span>
@@ -172,7 +172,7 @@
 
     </footer>
 
-        <script data-cfasync="false" src="{{ asset('assets/js/email-decode.min.js')   }}"></script><script src="{{ asset('assets/js/jquery-min.js')   }}"></script>
+        <script data-cfasync="false" src="{{ secure_asset('assets/js/email-decode.min.js')   }}"></script><script src="{{ secure_asset('assets/js/jquery-min.js')   }}"></script>
         <script src="{{ secure_asset('assets/js/popper.min.js')   }}"></script>
         <script src="{{ secure_asset('assets/js/bootstrap.min.js')   }}"></script>
         <script src="{{ secure_asset('assets/js/jquery.counterup.min.js')   }}"></script>
