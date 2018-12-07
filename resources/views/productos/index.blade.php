@@ -17,9 +17,9 @@
               <i class="fas fa-table"></i>
               Productos 
               <a href="{{ route('productos.create') }}" class="btn btn-sm btn-primary pull-right">
-              <i class="fas fa-save"></i>Crear
+              <i class="fas fa-save"></i>Crear </a>
             @endcan
-              </a>
+             
             </div>
             <div class="card-body">
               <div class="table-responsive">

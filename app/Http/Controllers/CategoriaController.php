@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 use App\Categoria;
 //Validaciones Request
 use Illuminate\Http\Request;
-use App\Http\Requests\CategoriaStoreRequest;
-use App\Http\Requests\CategoriaUpdateRequest;
-
+use App\Http\Requests\CategoriaRequest;
 class CategoriaController extends Controller
 {
     /**
@@ -36,7 +34,7 @@ class CategoriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoriaStoreRequest $request)
+    public function store(CategoriaRequest $request)
     {
         $categoria = new Categoria();
         $categoria->nombre_categoria = $request->nombre_categoria;
@@ -44,7 +42,7 @@ class CategoriaController extends Controller
         $categoria->descripcion = $request->descripcion;
         $categoria->save();
         return redirect()->route('categorias.show', $categoria->slug)
-            ->with('info', 'Categoria guardado con éxito');
+            ->with('msj', 'Categoria guardado con éxito');
     }
 
     /**
@@ -56,8 +54,7 @@ class CategoriaController extends Controller
     public function show($slug)
     {
         $categoria = Categoria::where('slug',$slug)->first();
-        return view('categorias.show', compact('categoria'))
-        ->with('msj','La categoria: '.$categoria->nombre_categoria.' ha sido guardado');
+        return view('categorias.show', compact('categoria'));
     }
 
     /**
@@ -69,7 +66,6 @@ class CategoriaController extends Controller
     public function edit($slug)
     {
         $categoria = Categoria::where('slug',$slug)->first();
-
         return view('categorias.edit', compact('categoria'));
     }
 
@@ -80,12 +76,9 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoriaUpdateRequest $request, Categoria $categoria)
+    public function update(Request $request, Categoria $categoria)
     {
-        
         $categoria= Categoria::findOrFail($categoria->id_categoria);
-        $categoria->nombre_categoria = $request->nombre_categoria;
-        $categoria->slug=str_slug($request->nombre_categoria);
         $categoria->descripcion = $request->descripcion;
         $categoria->save();
        

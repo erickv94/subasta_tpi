@@ -15,6 +15,11 @@ class PermissionsTableSeeder extends Seeder
         
         //Users
         Permission::create([
+            'name'          =>   'Crear de usuario',
+            'slug'          =>   'users.create',
+            'description'   =>   'Editar cualquier dato de un usuario del sistema',
+        ]);
+        Permission::create([
             'name'          =>   'Navegar usuarios',
             'slug'          =>   'users.index',
             'description'   =>   'Lista y navega todos los usuarios del sistema',

@@ -12,10 +12,6 @@
 	{{ Form::text('email', null, ['class' => 'form-control', 'id' => 'email']) }}
 </div>
 <div class="form-group">
-	{{ Form::label('password', 'Contraseña') }}
-	{{ Form::text('password', null, ['class' => 'form-control', 'id' => 'password']) }}
-</div>
-<div class="form-group">
 	{{ Form::label('direccion', 'Dirección') }}
 	{{ Form::text('direccion', null, ['class' => 'form-control', 'id' => 'direccion']) }}
 </div>
@@ -34,6 +30,7 @@
 	    @endforeach
     </ul>
 </div>
+
 <div class="form-group">
 	{{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
 </div>

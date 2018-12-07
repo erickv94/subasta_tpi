@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
-
+use Illuminate\Contracts\Encryption\DecryptException;
 class UserController extends Controller
 {
     /**
@@ -25,7 +25,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::get()
+        ->where('id','<>',2)
+        ->where('id','<>',3);
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -36,7 +39,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create($request->all());
+        $user->password= bcrypt($request->password);
+        $user->habilitar=true;
+        $user->save();
+        //actualizar roles
+        $user->roles()->sync($request->get('roles'));
+        return redirect()->route('users.show', $user->id)
+        ->with('msj','El Usuario: '.$user->name.' ha sido guardado');
     }
 
     /**
@@ -47,8 +57,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        
         $user = User::find($id);
-
         return view('users.show', compact('user'));
     }
 
@@ -60,7 +70,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = Role::get();
+        $roles = Role::get()
+        ->where('id','<>',2)
+        ->where('id','<>',3);
         return view('users.edit', compact('user', 'roles'));
     }
 
@@ -74,12 +86,12 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //actualizar usuario
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $user->update($request->all());
         //actualizar roles
         $user->roles()->sync($request->get('roles'));
-        return redirect()->route('users.edit', $user->id)
-            ->with('info', 'Usuario actualizado con éxito');
+        return redirect()->route('users.show', $user->id)
+        ->with('msj','El Usuario: '.$user->name.' ha sido actualizado con exito');;
     }
 
     /**

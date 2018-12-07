@@ -18,6 +18,7 @@ class CreateEmpresasTable extends Migration
             $table->increments('id_empresa');
             $table->string('forma_juridica')->nullable();
             $table->string('rubro')->nullable();
+            $table->string('descripcion',500)->nullable();
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users')
             ->onDelete('cascade')

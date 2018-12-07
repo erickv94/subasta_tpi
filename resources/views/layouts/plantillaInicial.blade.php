@@ -140,7 +140,7 @@
                         </li>
                         <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->name }} 
+                            {{ Auth::user()->username }} 
                             </a>
                             <div class="dropdown-menu">
                            
@@ -164,7 +164,7 @@
                     </li>
                    
                     <li>
-                        <a href="">{{ Auth::user()->name }} </a>
+                        <a href="">{{ Auth::user()->username }} </a>
                             <ul class="dropdown">
                                 <li><a href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">{{ __('Logout') }}</a></li>
                             </ul>

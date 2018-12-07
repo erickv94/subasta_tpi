@@ -13,7 +13,7 @@
                     {!! Form::model($categoria, ['route' => ['categorias.update', $categoria->id_categoria],
                     'method' => 'PUT']) !!}
 
-                        @include('categorias.partials.form')
+                        @include('categorias.partials.formEdit')
                         
                     {!! Form::close() !!}
                 </div>

@@ -42,11 +42,11 @@ class LoginController extends Controller
     {
         $conteo =DB::table('role_user')
         ->where('user_id', '=', auth()->user()->id)
-        ->where('role_id', '=', 3)
+        ->where('role_id', '=', 2)
         ->count();
         if($conteo == 1){
-            return '/home';
+            return '/';
         }
-        return '/';
+        return '/home';
     }
 }

@@ -13,14 +13,18 @@
           <!-- DataTables Example -->
           <div class="card mb-3">
             <div class="card-header">
+            @can('users.create')
               <i class="fas fa-table"></i>
-            Usuarios</div>
+              Productos 
+              <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary pull-right">
+              <i class="fas fa-save"></i>Crear </a>
+            @endcan
+            </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Id</th>
                       <th>Nombre de Usuario</th>
                       <th>Username</th>
                       <th colspan="3">Acciones</th>
@@ -28,7 +32,6 @@
                   </thead>
                   <tfoot>
                     <tr>
-                       <th>Id</th>
                         <th>Nombre de Usuario</th>
                         <th>Username</th>
                         <th colspan="3">Acciones</th>
@@ -37,7 +40,6 @@
                   <tbody>
                           @foreach($users as $user)
                           <tr>
-                              <td>{{ $user->id }}</td>
                               <td>{{ $user->name }}</td>
                               <td>{{ $user->username }}</td>
                               @can('users.show')

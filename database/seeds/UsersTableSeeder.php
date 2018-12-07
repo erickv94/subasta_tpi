@@ -40,13 +40,13 @@ class UsersTableSeeder extends Seeder
 
 
         //Permisos de Empresas
-        DB::table('permission_role')->insert(['permission_id' => '12' ,  'role_id'=>'3']);
         DB::table('permission_role')->insert(['permission_id' => '13' ,  'role_id'=>'3']);
         DB::table('permission_role')->insert(['permission_id' => '14' ,  'role_id'=>'3']);
         DB::table('permission_role')->insert(['permission_id' => '15' ,  'role_id'=>'3']);
         DB::table('permission_role')->insert(['permission_id' => '16' ,  'role_id'=>'3']);
         DB::table('permission_role')->insert(['permission_id' => '17' ,  'role_id'=>'3']);
         DB::table('permission_role')->insert(['permission_id' => '18' ,  'role_id'=>'3']);
+        DB::table('permission_role')->insert(['permission_id' => '19' ,  'role_id'=>'3']);
            
     }
 }
