@@ -3,6 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--Metainformación-->
+        <meta name="author" content="Erick Antonio Ventura" />
+        <meta name="keywords" content="subastas onlinea,ventas el salvador marketing web, Sivarcachadas " />
+        <meta name="description" content="Somos una empresa que permite que otras empresas entren en el mercado de las subastas en linea de una forma rapida y facil" />
+        <!--Estilos-->
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/bootstrap.min.css')   }}">
         <link rel="stylesheet" type="text/css" href="{{  asset('assets/fonts/line-icons.css')   }}">
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/slicknav.css')   }}">
@@ -47,12 +52,6 @@
         <nav class="navbar navbar-expand-lg bg-white fixed-top scrolling-navbar">
             <div class="container">
                 <div class="navbar-header">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="lni-menu"></span>
-                        <span class="lni-menu"></span>
-                        <span class="lni-menu"></span>
-                    </button>
                     <a href="{{ url('/') }}" class="navbar-brand"><img src="{{ secure_asset('/assets//img/logo.png')   }}" alt=""></a>
                 </div>
                 <div class="collapse navbar-collapse" id="main-navbar">
@@ -61,84 +60,84 @@
                 }
                 ?>
                 @if (Auth::guest())
-                    <ul class="navbar-nav mr-auto w-100 justify-content-center">
-                        <li class="nav-item dropdown {{activeMenu('/')}}">
+                    <ul class="navbar-nav mr-auto w-100 justify-content-center"  itemscope itemtype="https://schema.org/URL"> 
+                        <li class="nav-item dropdown {{activeMenu('/')}}" itemprop="serviceUrl" data-seccion="home">
                             <a class="nav-link dropdown-toggle" href="{{ url('/') }}">
                                 Home
                             </a>
                         </li>
-                        <li class="nav-item {{activeMenu('productosSubasta')}}">
-                            <a class="nav-link" href="{{ url('/productosSubasta') }}">
+                        <li class="nav-item {{activeMenu('productosSubasta')}}" itemscope itemtype="https://schema.org/Thing" itemprop="category">
+                            <a class="nav-link" href="{{ url('/productosSubasta') }}" itemprop="serviceUrl" data-seccion="productosSubasta">
                                 Productos
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contacto">
+                        <li class="nav-item" itemscope itemtype="https://schema.org/Thing" itemprop="category">
+                            <a class="nav-link" href="/contacto" itemprop="serviceUrl" data-seccion="contacto">
                             Contactanos
                             </a>
                         </li>
-                        <li class="nav-item {{activeMenu('login')}}">
-                            <a class="nav-link" href="{{ route('login') }}">
+                        <li class="nav-item {{activeMenu('login')}}" itemscope itemtype="https://schema.org/Thing" itemprop="category">
+                            <a class="nav-link" href="{{ route('login') }}" itemprop="serviceUrl" data-seccion="login">
                             Inicio de Sesión
                             </a>
                         </li>
-                        <li class="nav-item dropdown ">
+                        <li class="nav-item dropdown " itemscope itemtype="https://schema.org/Thing" itemprop="category">
                             <a class="nav-link dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Registrese
                             </a>
                             <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('crearEmpresa') }}">Registrese como Empresa</a>
-                            <a class="dropdown-item" href="{{ route('crearCliente') }}">Registrese como Cliente</a>
+                            <a class="dropdown-item" href="{{ route('crearEmpresa') }}" itemprop="serviceUrl" data-seccion="crearEmpresa">Registrese como Empresa</a>
+                            <a class="dropdown-item" href="{{ route('crearCliente') }}" itemprop="serviceUrl" data-seccion="crearCliente">Registrese como Cliente</a>
                             </div>
                         </li>
                     </ul>
 
-                    <ul class="mobile-menu">
+                    <ul class="mobile-menu" itemscope itemtype="https://schema.org/URL">
                     <li>
-                        <a href="{{ url('/') }}">Home</a>
+                        <a href="{{ url('/') }}" itemprop="serviceUrl" data-seccion="home">Home</a>
                     </li>
                     <li>
-                        <a href="{{ url('/productosSubasta') }}">Productos</a>
+                        <a href="{{ url('/productosSubasta') }}" itemprop="serviceUrl" data-seccion="productosSubastas">Productos</a>
                     </li>
                     <li>
-                        <a href="/contacto">Contactanos</a>
+                        <a href="/contacto" itemprop="serviceUrl" data-seccion="contacto">Contactanos</a>
                     </li>
                     <li>
-                        <a href="{{ route('login') }}">Inicio de Sesión</a>
+                        <a href="{{ route('login') }}" itemprop="serviceUrl" data-seccion="login">Inicio de Sesión</a>
                     </li>
                     <li>
                         <a href="">Registrese</a>
                             <ul class="dropdown">
-                                <li><a href="{{ route('crearEmpresa') }}">Registrese como Empresa</a></li>
-                                <li><a href="{{ route('crearCliente') }}">Registrese como Cliente</a></li>
+                                <li><a href="{{ route('crearEmpresa') }}" itemprop="serviceUrl" data-seccion="crearEmpresa">Registrese como Empresa</a></li>
+                                <li><a href="{{ route('crearCliente') }}" itemprop="serviceUrl" data-seccion="crearCliente">Registrese como Cliente</a></li>
                             </ul>
                     </li>
                     </ul>
                     @else
-                    <ul class="navbar-nav mr-auto w-100 justify-content-center">
-                        <li class="nav-item dropdown {{activeMenu('/')}}">
-                            <a class="nav-link dropdown-toggle" href="{{ url('/') }}">
+                    <ul class="navbar-nav mr-auto w-100 justify-content-center" itemscope itemtype="https://schema.org/URL">
+                        <li class="nav-item dropdown {{activeMenu('/')}}" itemscope itemtype="https://schema.org/Thing" itemprop="category">
+                            <a class="nav-link dropdown-toggle" href="{{ url('/') }}" itemprop="serviceUrl" data-seccion="home">
                                 Home
                             </a>
                         </li>
-                        <li class="nav-item {{activeMenu('productosSubasta')}}">
-                            <a class="nav-link" href="{{ url('/productosSubasta') }}">
+                        <li class="nav-item {{activeMenu('productosSubasta')}}" itemscope itemtype="https://schema.org/Thing" itemprop="category">
+                            <a class="nav-link" href="{{ url('/productosSubasta') }}" itemprop="serviceUrl" data-seccion="productosSubasta">
                                 Productos
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
+                        <li class="nav-item" itemscope itemtype="https://schema.org/Thing" itemprop="category">
+                            <a class="nav-link" href="" itemprop="serviceUrl" data-seccion="mis productos">
                             Mis Productos
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
+                        <li class="nav-item" itemscope itemtype="https://schema.org/Thing" itemprop="category">
+                            <a class="nav-link" href="" itemprop="serviceUrl" data-seccion="mi perfil">
                             Mi Perfil
                             </a>
                         </li>
-                        <li class="nav-item dropdown ">
+                        <li class="nav-item dropdown " itemscope itemtype="https://schema.org/Thing" itemprop="category">
                             <a class="nav-link dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ Auth::user()->username }} 
                             </a>
@@ -149,18 +148,18 @@
                         </li>
                   
                     </ul>
-                    <ul class="mobile-menu">
+                    <ul class="mobile-menu" itemscope itemtype="https://schema.org/URL" >
                     <li>
-                        <a href="{{ url('/') }}">Home</a>
+                        <a href="{{ url('/') }}" itemprop="serviceUrl" data-seccion="home">Home</a>
                     </li>
                     <li>
-                        <a href="{{ url('/productosSubasta') }}">Productos</a>
+                        <a href="{{ url('/productosSubasta') }}" itemprop="serviceUrl" data-seccion="productosSubasta">Productos</a>
                     </li>
                     <li>
-                        <a href="">Mis Productos</a>
+                        <a href="" itemprop="serviceUrl" data-seccion="MisProductos">Mis Productos</a>
                     </li>
                     <li>
-                        <a href="">Mi Perfil</a>
+                        <a href=""itemprop="serviceUrl" data-seccion="perfil">Mi Perfil</a>
                     </li>
                    
                     <li>
@@ -171,9 +170,7 @@
                     </li>
                     </ul>
                     @endif
-                    <div class="post-btn">
-                        <a class="btn btn-common" href="post-ads.html"><i class="lni-pencil-alt"></i> Post an Ad</a>
-                    </div>
+                    
                 </div>
             </div>
             
@@ -194,8 +191,8 @@
                         <p>Subastas Online</p>
                     </div>
                     <ul class="mt-3 footer-social">
-                        <li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li>
+                        <li><a class="facebook" href="https://www.facebook.com/Sivarchadas-379634992605661/" target="_blank"><i class="lni-facebook-filled"></i></a></li>
+                        <li><a class="twitter" href="https://twitter.com/Sivarcachadas1"  target="_blank"><i class="lni-twitter-filled"></i></a></li>
                         <li><a class="instagram" href="https://www.instagram.com/sivarcachadas/?hl=es-la"  target="_blank"><i class="lni-instagram-filled"></i></a></li>
                         <li><a class="linkedin" href="https://www.linkedin.com/in/sivarcachadas-subastas-a529b9176/"  target="_blank"><i class="lni-linkedin-fill"></i></a></li>
                         <li><a class="google-plus" href="https://plus.google.com/113205622699773326227?hl=es&pli=1"  target="_blank"><i class="lni-google-plus"></i></a></li>
