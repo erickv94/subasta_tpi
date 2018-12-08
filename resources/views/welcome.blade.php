@@ -35,7 +35,7 @@
                         </p>
                         <p class="intro-desc">
                         Somos expertos en servicios de intermediación y facilitación de ventas de productos por medio de subastas 
-                        online en España. Contamos con especialización en venta de activos, bienes inmuebles, maquinaria, vehículos
+                        online en Centroamerica. Contamos con especialización en venta de activos, bienes inmuebles, maquinaria, vehículos
                          y empresas. Disponemos de los mejores contactos y la mejor agenda para poner a tu disposición subastas judiciales online, subastas embargo y venta de bienes oficiales con énfasis empresarial.
                         </p>
                        

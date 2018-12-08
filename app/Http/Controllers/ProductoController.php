@@ -10,6 +10,7 @@ use App\User;
 //Validaciones Request
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductoStoreRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
 {
@@ -68,6 +69,7 @@ class ProductoController extends Controller
         $categoria_nombre = $producto->categorias->nombre_categoria;
         $producto->slug=str_slug($codigo. ' ' . $categoria_nombre);
         $producto->save();
+        
         return redirect()->route('productos.show',$producto->slug)
             ->with('msj','El producto: '.$producto->nombre_producto.' ha sido guardado');
     }
@@ -125,7 +127,7 @@ class ProductoController extends Controller
         $producto->slug=str_slug($codigo. ' ' . $categoria_nombre);
         $producto->update();
         return redirect()->route('productos.show',$producto->slug)
-                ->with('info','Producto actualizado con éxito');
+                ->with('msj','Producto actualizado con éxito');
     }
 
     /**

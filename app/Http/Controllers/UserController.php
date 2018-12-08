@@ -105,4 +105,5 @@ class UserController extends Controller
         $user = User::find($id)->delete();
         return back()->with('info', 'Eliminado correctamente');
     }
+    
 }

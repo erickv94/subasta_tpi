@@ -60,6 +60,7 @@ Route::middleware(['auth'])->group(function(){
                 ->middleware('permission:users.destroy');
         Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit')
                 ->middleware('permission:users.edit');
+       
          //Empresas
         Route::get('empresas', 'EmpresaController@index')->name('empresas.index')
                 ->middleware('permission:empresas.index');
@@ -69,6 +70,7 @@ Route::middleware(['auth'])->group(function(){
                 ->middleware('permission:users.habilitar');
         Route::get('empresas/deshabilitar/{id}', 'EmpresaController@deshabilitar')->name('empresas.deshabilitar')
                 ->middleware('permission:users.deshabilitar');
+
           //Clientes
         Route::get('clientes', 'ClienteController@index')->name('clientes.index')
                ->middleware('permission:clientes.index');

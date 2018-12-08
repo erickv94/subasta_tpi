@@ -26,6 +26,15 @@
 	@endif
 </div>
 <div class="form-group">
+	{{ Form::label('precio_inicial','Imagen  del Producto') }}
+	{{ Form::file('file_img') }}
+	@if($errors->has('file_img'))
+		<div class="form-control-feedback text-danger">
+				{{$errors->first('file_img')}}
+		</div>		
+	@endif
+</div>
+<div class="form-group">
 	{{ Form::label('id_categoria','Categoria') }}
 	<select  class ="form-control"name="categorias" id="categorias" >
 		<option value="" disabled selected>Seleccione una categoria</option>

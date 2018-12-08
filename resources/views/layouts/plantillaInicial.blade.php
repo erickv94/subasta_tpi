@@ -36,9 +36,9 @@
                         <div class="roof-social float-right">
                             <a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
                             <a class="twitter" href="#"><i class="lni-twitter-filled"></i></a>
-                            <a class="instagram" href="#"><i class="lni-instagram-filled"></i></a>
-                            <a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a>
-                            <a class="google" href="#"><i class="lni-google-plus"></i></a>
+                            <a class="instagram" href="https://www.instagram.com/sivarcachadas/?hl=es-la"  target="_blank"><i class="lni-instagram-filled"></i></a>
+                            <a class="linkedin" href="https://www.linkedin.com/in/sivarcachadas-subastas-a529b9176/"  target="_blank"><i class="lni-linkedin-fill"></i></a>
+                            <a class="google" href="https://plus.google.com/113205622699773326227?hl=es&pli=1"  target="_blank"><i class="lni-google-plus"></i></a>
                         </div>
                     
                 </div>
@@ -129,12 +129,12 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="">
                             Mis Productos
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="">
                             Mi Perfil
                             </a>
                         </li>
@@ -196,8 +196,9 @@
                     <ul class="mt-3 footer-social">
                         <li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
                         <li><a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a></li>
-                        <li><a class="google-plus" href="#"><i class="lni-google-plus"></i></a></li>
+                        <li><a class="instagram" href="https://www.instagram.com/sivarcachadas/?hl=es-la"  target="_blank"><i class="lni-instagram-filled"></i></a></li>
+                        <li><a class="linkedin" href="https://www.linkedin.com/in/sivarcachadas-subastas-a529b9176/"  target="_blank"><i class="lni-linkedin-fill"></i></a></li>
+                        <li><a class="google-plus" href="https://plus.google.com/113205622699773326227?hl=es&pli=1"  target="_blank"><i class="lni-google-plus"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -206,13 +207,14 @@
                     <h3 class="block-title">Contact Info</h3>
                         <ul class="contact-footer">
                         <li>
-                            <strong><i class="lni-phone"></i></strong><span>+1 555 444 66647 <br> +1 555 444 66647</span>
+                            <strong><i class="lni-phone"></i></strong><span>+503 2277-8899<br> +503 2277-8999</span>
                         </li>
                         <li>
-                            <strong><i class="lni-envelope"></i></strong><span><a href="https://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9efdf1f0eafffdeadef3fff7f2b0fdf1f3">[email&#160;protected]</a> <br> <a href="https://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e4979194948b9690a489858d88ca878b89">[email&#160;protected]</a></span>
+                            <strong><i class="lni-envelope"></i></strong><span><a href="" class="__cf_email__">sivarcachadas@gmail.com</a></span>
                         </li>
                         <li>
-                            <strong><i class="lni-map-marker"></i></strong><span><a href="#">9870 St Vincent Place, Glasgow, DC 45 <br>Fr 45</a></span>
+                            <strong><i class="lni-map-marker"></i></strong><span><a href="#">Final 25 Avenida Norte, San Salvador
+                            Universidad de El Salvador, Dirección</a></span>
                         </li>
                         </ul>
             </div>
