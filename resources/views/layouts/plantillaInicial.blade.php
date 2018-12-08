@@ -39,8 +39,8 @@
                         </div>
                     <div class="col-lg-5 col-md-7 col-xs-12">
                         <div class="roof-social float-right">
-                            <a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
-                            <a class="twitter" href="#"><i class="lni-twitter-filled"></i></a>
+                            <a class="facebook" href="https://www.facebook.com/Sivarchadas-379634992605661/" target="_blank"><i class="lni-facebook-filled"></i></a>
+                            <a class="twitter" href="https://twitter.com/Sivarcachadas1"  target="_blank"><i class="lni-twitter-filled"></i></a>
                             <a class="instagram" href="https://www.instagram.com/sivarcachadas/?hl=es-la"  target="_blank"><i class="lni-instagram-filled"></i></a>
                             <a class="linkedin" href="https://www.linkedin.com/in/sivarcachadas-subastas-a529b9176/"  target="_blank"><i class="lni-linkedin-fill"></i></a>
                             <a class="google" href="https://plus.google.com/113205622699773326227?hl=es&pli=1"  target="_blank"><i class="lni-google-plus"></i></a>
@@ -132,22 +132,18 @@
                             Mis Productos
                             </a>
                         </li>
-<<<<<<< HEAD
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/cliente/perfil) }}">
-=======
+                        @can('clientes.perfil')
                         <li class="nav-item" itemscope itemtype="https://schema.org/Thing" itemprop="category">
-                            <a class="nav-link" href="" itemprop="serviceUrl" data-seccion="mi perfil">
->>>>>>> bcd2229de435875909ea1d14404cfaeece4b27a3
+                            <a class="nav-link" href="{{ route('clientes.show',Auth::user()->id) }}" itemprop="serviceUrl" data-seccion="perfil">
                             Mi Perfil
                             </a>
                         </li>
+                        @endcan
                         <li class="nav-item dropdown " itemscope itemtype="https://schema.org/Thing" itemprop="category">
                             <a class="nav-link dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ Auth::user()->username }} 
                             </a>
                             <div class="dropdown-menu">
-                           
                             <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">{{ __('Logout') }}</a>
                             </div>
                         </li>
@@ -164,8 +160,10 @@
                         <a href="" itemprop="serviceUrl" data-seccion="MisProductos">Mis Productos</a>
                     </li>
                     <li>
+                    @can('clientes.perfil')
                         <a href=""itemprop="serviceUrl" data-seccion="perfil">Mi Perfil</a>
                     </li>
+                    @endcan
                    
                     <li>
                         <a href="">{{ Auth::user()->username }} </a>

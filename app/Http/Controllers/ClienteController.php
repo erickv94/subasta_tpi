@@ -27,8 +27,8 @@ class ClienteController extends Controller
         ->where('role_id', '=', 2)
         ->where('users.id','<>',$user->id)
         ->orderBy('users.id','DESC')
+        ->select('users.*','clientes.*')
         ->paginate(10);
-       
         return view('clientes.index',compact('clientes'));
     }
 
@@ -64,7 +64,6 @@ class ClienteController extends Controller
         $cliente->fecha_nacimiento = $request->fecha_nacimiento;
         $cliente->telefono = $request->telefono;
         $cliente->id_user = $user->id;
-        $cliente->id_user = $user->id;
         $cliente->save();
         return redirect()->route('login')->with('info','Ingrese a su cuenta');
     }
@@ -77,7 +76,9 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $user = User::findOrFail($id);
+        return view('clientes.show',compact('user'));
     }
 
     /**
@@ -88,7 +89,9 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $user = User::findOrFail($id);
+        return view('clientes.edit',compact('user'));
     }
 
     /**
@@ -100,7 +103,11 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+        $user->clientes()->id_user=$user->id;
+        return redirect()->route('clientes.show',$user->id)
+        ->with('msj','Perfil actualizado con Exito');
     }
 
     /**

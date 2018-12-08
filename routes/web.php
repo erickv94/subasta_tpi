@@ -79,15 +79,16 @@ Route::middleware(['auth'])->group(function(){
           //Clientes
         Route::get('clientes', 'ClienteController@index')->name('clientes.index')
                ->middleware('permission:clientes.index');
-        Route::get('clientes/{role}', 'ClienteController@show')->name('clientes.show')
-               ->middleware('permission:clientes.show');
+        Route::get('clientes/{role}', 'ClienteController@show')->name('clientes.show');
         Route::get('clientes/habilitar/{id}', 'ClienteController@habilitar')->name('clientes.habilitar')
                ->middleware('permission:users.habilitar');
         Route::get('clientes/deshabilitar/{id}', 'ClienteController@deshabilitar')->name('clientes.deshabilitar')
                ->middleware('permission:users.deshabilitar');
-
-        //Ruta para el perfil del usuario
-        Route::get('/cliente/perfil','ClienteController@showProfile');
+        //Permisos para editar perfil
+        Route::get('clientes/{user}/edit', 'ClienteController@edit')->name('clientes.edit')
+                ->middleware('permission:clientes.perfil');
+        Route::put('clientes/{user}', 'ClienteController@update')->name('clientes.update')
+                ->middleware('permission:clientes.perfil');
 
         //Categorias
         Route::post('categorias/store', 'CategoriaController@store')->name('categorias.store')

@@ -47,6 +47,11 @@ class UsersTableSeeder extends Seeder
         DB::table('permission_role')->insert(['permission_id' => '17' ,  'role_id'=>'3']);
         DB::table('permission_role')->insert(['permission_id' => '18' ,  'role_id'=>'3']);
         DB::table('permission_role')->insert(['permission_id' => '19' ,  'role_id'=>'3']);
+
+        //Permisos de Clientes
+        DB::table('permission_role')->insert(['permission_id' => '29' ,  'role_id'=>'2']);
+        DB::table('permission_role')->insert(['permission_id' => '30' ,  'role_id'=>'2']);
+        DB::table('permission_role')->insert(['permission_id' => '31' ,  'role_id'=>'2']);
            
     }
 }

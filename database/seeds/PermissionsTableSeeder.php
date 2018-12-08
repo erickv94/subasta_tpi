@@ -136,17 +136,6 @@ class PermissionsTableSeeder extends Seeder
             'slug'          =>   'clientes.edit',
             'description'   =>   'Editar cualquier dato de un cliente del sistema',
         ]);
-        //Reglas para la subasta
-        Permission::create([
-            'name'          =>   'Apostar Producto',
-            'slug'          =>   'productos.apuesta',
-            'description'   =>   'Permite apostar un producto',
-        ]);
-        Permission::create([
-            'name'          =>   'Vender Producto',
-            'slug'          =>   'productos.venta',
-            'description'   =>   'Permite finalizar la apuesta un producto',
-        ]);
          //Categorias
          Permission::create([
             'name'          =>   'Navegar categorias',
@@ -173,7 +162,23 @@ class PermissionsTableSeeder extends Seeder
             'slug'          =>   'categorias.destroy',
             'description'   =>   'Eliminar cualquier categoria del sistema',
         ]);
-         
+        //Permisos para los clientes
+        Permission::create([
+            'name'          =>   'Apostar Producto',
+            'slug'          =>   'productos.apuesta',
+            'description'   =>   'Permite apostar un producto',
+        ]);
+        Permission::create([
+            'name'          =>   'Vender Producto',
+            'slug'          =>   'productos.venta',
+            'description'   =>   'Permite finalizar la apuesta un producto',
+        ]);
+        Permission::create([
+            'name'          =>   'Ver Perfil',
+            'slug'          =>   'clientes.perfil',
+            'description'   =>   'Permite permite ver el perfil del cliente',
+        ]);
+        
        
     }
 }
