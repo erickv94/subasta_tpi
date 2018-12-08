@@ -26,7 +26,7 @@ class ProductoStoreRequest extends FormRequest
         return [
             'nombre_producto'    =>  'required|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ]*)*)+$/|max:80|string',
             'precio_inicial'     =>  'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
-            'fecha_expiracion'   =>  'required|date|after:now',
+            'fecha_expiracion'   =>  'required|date|after:yesterday',
             'descripcion'        =>  'nullable',
             'categorias'         =>  'required',
         ];
