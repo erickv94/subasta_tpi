@@ -27,6 +27,11 @@ Route::get('clientes/create', 'ClienteController@create')->name('crearCliente');
 Route::post('empresas/store', 'EmpresaController@store')->name('empresas.store');
 Route::post('clientes/store', 'ClienteController@store')->name('clientes.store');
 
+//Reset User Paasword
+Route::get('users/showResetPassword', 'UserController@showResetPassword');
+ROute::post('users/updatePassword','UserController@updatePassword');
+
+
 //Routes
 
 Route::middleware(['auth'])->group(function(){
@@ -80,6 +85,9 @@ Route::middleware(['auth'])->group(function(){
                ->middleware('permission:users.habilitar');
         Route::get('clientes/deshabilitar/{id}', 'ClienteController@deshabilitar')->name('clientes.deshabilitar')
                ->middleware('permission:users.deshabilitar');
+
+        //Ruta para el perfil del usuario
+        Route::get('/cliente/perfil','ClienteController@showProfile');
 
         //Categorias
         Route::post('categorias/store', 'CategoriaController@store')->name('categorias.store')

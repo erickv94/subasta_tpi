@@ -10,6 +10,7 @@ use Caffeinated\Shinobi\Models\Role;
 //Validaciones Request
 use Illuminate\Http\Request;
 use App\Http\Requests\ClienteStoreRequest;
+use Hash;
 
 class ClienteController extends Controller
 {
@@ -40,6 +41,8 @@ class ClienteController extends Controller
     {
         return view('clientes.create');
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -125,5 +128,10 @@ class ClienteController extends Controller
         $user->habilitar=true;
         $user->save();
         return redirect()->action('ClienteController@index')->with('msj','El perfil del cliente '.$user->name.' ha sido habilitado');
+    }
+
+    public function  showProfile(Request $request){
+
+        return view('clientes.perfil-cliente');
     }
 }

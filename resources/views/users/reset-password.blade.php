@@ -8,7 +8,15 @@
                         Cambio de contraseña
                     </div>
                     <div class="card-body">
-                            <form>
+                            <form method="post" action="{{url('users/updatePassword')}}>
+                                {{ csrf_field() }}
+
+                                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Contraseña actual</label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Contraseña actual">
+                        </div>
+                    </div>
                                     <div class="form-group row">
                                       <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Contraseña</label>
                                       <div class="col-sm-8">

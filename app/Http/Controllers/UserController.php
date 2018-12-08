@@ -49,6 +49,8 @@ class UserController extends Controller
         ->with('msj','El Usuario: '.$user->name.' ha sido guardado');
     }
 
+
+
     /**
      * Display the specified resource.
      *
@@ -105,5 +107,44 @@ class UserController extends Controller
         $user = User::find($id)->delete();
         return back()->with('info', 'Eliminado correctamente');
     }
-    
+
+    public function showResetPassword(Request $request){
+
+        return view('users.reset-password');
+    }
+
+    public function updatePassword(){
+        $rules = [
+            'mypassword' => 'required',
+            'password' => 'required|confirmed|min:6|max:16',
+
+        ];
+        $messages =  [
+            'mypassword.required' => 'El campo es requerido',
+            'password.required'=> 'EL campo es requerido',
+            'password.confirmed'=> 'Las passwords no coinciden',
+            'password.confirmed'=> 'El minimo permitido son 6 caracteres',
+            'password.max' => 'EL  maximo prermitido son 18 caracteres',
+        ];
+       $validator = Validator::make($request->all(), $rules, $messages);
+       if($validator->fails()){
+           return redirect('users/showResetPassword')->withErrors($validator);
+
+       }
+       else{
+           if(Hash::check($request->mypassword, Auth::user()->password)){
+                $user = new User;
+                $user->where('email','=',Auth::user()->email)
+                    ->update(['password'=>bcrypt($request->password)]);
+                return redirect('user')->with('status','Password cambiado con exito');
+
+           }
+           else{
+               return redirect('users/showResetPassword')->with('message','CREDENCIALES INCORRECTAS');
+
+           }
+
+       }
+    }
 }
+
