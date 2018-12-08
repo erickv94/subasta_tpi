@@ -34,6 +34,15 @@
      </select>
 </div>
 <div class="form-group">
+	{{ Form::label('precio_inicial','Imagen  del Producto') }}
+	{{ Form::file('file_img') }}
+	@if($errors->has('file_img'))
+		<div class="form-control-feedback text-danger">
+				{{$errors->first('file_img')}}
+		</div>		
+	@endif
+</div>
+<div class="form-group">
 	{{ Form::label('descripcion', 'Descripción') }}
 	{{ Form::textarea('descripcion', null, ['class' => 'form-control', 'id' => 'nombre_producto', 'S']) }}
 	@if($errors->has('descripcion'))

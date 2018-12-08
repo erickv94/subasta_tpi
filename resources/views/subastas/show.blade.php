@@ -23,7 +23,7 @@
     <div class="ads-details-wrapper">
     <div class="product-img">
       @if($producto->file_img)
-        <img src ="{{ $producto->file_img }}" class="img-fluid"/>
+        <img src ="/imagenes/{{ $producto->file_img }}" class="img-fluid"/>
       @endif    
     </div>
       

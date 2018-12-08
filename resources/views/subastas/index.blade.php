@@ -58,7 +58,7 @@
             <div class="featured-box">
               <figure>
                 @if($product->file_img)
-                  <img src ="{{ $product->file_img }}"  img class="img-fluid"/>
+                  <img src ="/imagenes/{{ $product->file_img }}"  img class="img-fluid"/>
                 @endif
               </figure>
               <div class="feature-content">

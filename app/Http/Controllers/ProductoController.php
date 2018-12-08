@@ -10,7 +10,6 @@ use App\User;
 //Validaciones Request
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductoStoreRequest;
-use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
 {
@@ -47,6 +46,12 @@ class ProductoController extends Controller
      */
     public function store(ProductoStoreRequest $request)
     {
+        if($request->hasFile('file_img')){
+            $file = $request->file('file_img');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/imagenes/',$name);
+           
+        }
         $user = Auth::user()->empresas;
         //Codigo es generado por la aplicación
         $cantidad = Producto::count();
@@ -68,6 +73,7 @@ class ProductoController extends Controller
         //Slug creado con el codigo y el nombre de la categoria
         $categoria_nombre = $producto->categorias->nombre_categoria;
         $producto->slug=str_slug($codigo. ' ' . $categoria_nombre);
+        $producto->file_img = $name;
         $producto->save();
         
         return redirect()->route('productos.show',$producto->slug)
@@ -106,6 +112,12 @@ class ProductoController extends Controller
      */
     public function update(ProductoStoreRequest $request, $id)
     {
+        if($request->hasFile('file_img')){
+            $file = $request->file('file_img');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/imagenes/',$name);
+           
+        }
         $user = Auth::user()->empresas;
         //Codigo es generado por la aplicación
         $cantidad = Producto::count();
@@ -125,6 +137,7 @@ class ProductoController extends Controller
         //Slug creado con el codigo y el nombre de la categoria
         $categoria_nombre = $producto->categorias->nombre_categoria;
         $producto->slug=str_slug($codigo. ' ' . $categoria_nombre);
+        $producto->file_img = $name;
         $producto->update();
         return redirect()->route('productos.show',$producto->slug)
                 ->with('msj','Producto actualizado con éxito');
