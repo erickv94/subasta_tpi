@@ -30,12 +30,12 @@
 </section>
 
 
-<section id="content" class="section-padding">
+<section id="content" class="section-padding"  itemscope itemtype="https://schema.org/ContactPage">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-xs-12">
 
-        <form id="contactForm" class="contact-form" data-toggle="validator">
+        <form id="contactForm" class="contact-form" data-toggle="validator" itemprop="mainEntityOfPage">
           <h2 class="contact-title">
             Envienos su mensaje
           </h2>
@@ -44,19 +44,19 @@
               <div class="row">
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                   <div class="form-group">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre Completo" required data-error="Ingrese su nombre">
+                    <input type="text" itemprop="text" class="form-control" id="name" name="name" placeholder="Nombre Completo" required data-error="Ingrese su nombre">
                     <div class="help-block with-errors"></div>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                   <div class="form-group">
-                    <input type="email" class="form-control" id="email" placeholder="Email" required data-error="Ingrese su email">
+                    <input type="email" itemprop="text" class="form-control" id="email" placeholder="Email" required data-error="Ingrese su email">
                     <div class="help-block with-errors"></div>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                   <div class="form-group">
-                    <input type="text" class="form-control" id="msg_subject" name="subject" placeholder="Edad" required data-error="Ingrese su edad">
+                    <input type="text" itemprop="text" class="form-control" id="msg_subject" name="subject" placeholder="Edad" required data-error="Ingrese su edad">
                     <div class="help-block with-errors"></div>
                   </div>
             </div>
