@@ -7,6 +7,26 @@
         <meta name="author" content="Erick Antonio Ventura" />
         <meta name="keywords" content="subastas onlinea,ventas el salvador marketing web, Sivarcachadas " />
         <meta name="description" content="Somos una empresa que permite que otras empresas entren en el mercado de las subastas en linea de una forma rapida y facil" />
+
+        <!--OPG y TW CARD-->
+        <meta property="og:url"          content="http://http://sivarcachadas.herokuapp.com/" />
+        <meta property="og:type"         content="website" />
+        <meta property="og:title"        content="Inicio" />
+        <meta property="og:description"  content="Somos una empresa que permite que otras empresas entren en el mercado de las subastas en linea de una forma rapida y facil" />
+        <meta property="og:image"        content="/public/assets/img/panel-admin-opg.jpeg" />
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@Sivarchadas">
+        <meta name="twitter:creator" content="@sivarchadas">
+        <!--url de la página-->
+        <meta name="twitter:url" content="http://sivarcachadas.herokuapp.com/">
+        <!--Título de la página-->
+        <meta name="twitter:title" content="Inicio - Sivarchadas">
+        <!--Descripción de la página-->
+        <meta name="twitter:description" content="Somos una empresa que permite que otras empresas entren en el mercado de las subastas en linea de una forma rapida y facil">
+        <!--Imagen para compartir-->
+        <meta name="twitter:image" content="/public/assets/img/foto-opg.jpeg">
+
         <!--Estilos-->
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/bootstrap.min.css')   }}">
         <link rel="stylesheet" type="text/css" href="{{  asset('assets/fonts/line-icons.css')   }}">

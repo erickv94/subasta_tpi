@@ -15,18 +15,7 @@
                                         <div class="form-group">
                                             <input type="text" name="customword" class="form-control" placeholder="¿Que esta Buscando?">
                                         </div>
-                                        <div class="form-group inputwithicon">
-                                                <div class="select">
-                                                    <select>
-                                                        <option value="none">Locación</option>
-                                                        <option value="none">Sonsonate</option>
-                                                        <option value="none">San Salvador</option>
-                                                        <option value="none">Santa Ana</option>
-                                                        <option value="none">San Miguel</option>
-                                                    </select>
-                                                </div>
-                                                 <i class="lni-target"></i>
-                                            </div>
+
                                             <div class="form-group inputwithicon">
                                                     <div class="select">
                                                     <select name="categorias" id="categorias" >
