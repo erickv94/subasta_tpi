@@ -11,7 +11,7 @@
 
                 <div class="card-body">
                     {!! Form::model($producto, ['route' => ['productos.update', $producto->id_producto],
-                    'method' => 'PUT','files' => true]) !!}
+                    'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
 
                         @include('productos.partials.formEdit')
                         

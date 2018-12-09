@@ -29,7 +29,7 @@ class ProductoStoreRequest extends FormRequest
             'fecha_expiracion'   =>  'required|date|after:yesterday',
             'descripcion'        =>  'nullable',
             'categorias'         =>  'required',
-            'file_img'           =>  'required',
+            'file_img'           =>  'required|mimes:jpeg,bmp,jpg,png|between:1,6000|dimensions:min_width=1200,min_height=400',
         ];
     }
     public function messages()

@@ -9,7 +9,7 @@
                    Detalle del producto
                 </div>
                 @if($producto->file_img)
-                  <img src ="/imagenes/{{$producto->file_img }}" class="img-responsive center-block "/>
+                  <img src ="{{$producto->file_img }}" class="img-responsive center-block "/>
                 @endif
                 <div class="card-body">
                 @if(session()->has('msj'))
