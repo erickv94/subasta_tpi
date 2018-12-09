@@ -14,7 +14,7 @@
         <meta property="og:title"        content="Inicio" />
         <meta property="og:description"  content="Somos una empresa que permite que otras empresas entren en el mercado de las subastas en linea de una forma rapida y facil" />
         <meta property="og:image"        content="/public/assets/img/panel-admin-opg.jpeg" />
-
+        <meta name="google-site-verification" content="avvyXAqsN6hzUpe2wyeGRgAa-VaaPbZrJW5pzQjmveY" />
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@Sivarchadas">
         <meta name="twitter:creator" content="@sivarchadas">
@@ -36,7 +36,7 @@
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/owl.carousel.css')   }}">
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/main.css')   }}">
         <link rel="stylesheet" type="text/css" href="{{  secure_asset('assets/css/responsive.css')   }}">
-        
+
         <!-- FAVICON-->
         <link rel="apple-touch-icon" sizes="180x180" href="{{ secure_asset('/favicon/apple-touch-icon.png')   }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ secure_asset('/favicon/favicon-32x32.png')   }}">
@@ -65,7 +65,7 @@
                             <a class="linkedin" href="https://www.linkedin.com/in/sivarcachadas-subastas-a529b9176/"  target="_blank"><i class="lni-linkedin-fill"></i></a>
                             <a class="google" href="https://plus.google.com/113205622699773326227?hl=es&pli=1"  target="_blank"><i class="lni-google-plus"></i></a>
                         </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@
                 }
                 ?>
                 @if (Auth::guest())
-                    <ul class="navbar-nav mr-auto w-100 justify-content-center"  itemscope itemtype="https://schema.org/URL"> 
+                    <ul class="navbar-nav mr-auto w-100 justify-content-center"  itemscope itemtype="https://schema.org/URL">
                         <li class="nav-item dropdown {{activeMenu('/')}}" itemprop="serviceUrl" data-seccion="home">
                             <a class="nav-link dropdown-toggle" href="{{ url('/') }}">
                                 Home
@@ -161,13 +161,13 @@
                         @endcan
                         <li class="nav-item dropdown " itemscope itemtype="https://schema.org/Thing" itemprop="category">
                             <a class="nav-link dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->username }} 
+                            {{ Auth::user()->username }}
                             </a>
                             <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">{{ __('Logout') }}</a>
                             </div>
                         </li>
-                  
+
                     </ul>
                     <ul class="mobile-menu" itemscope itemtype="https://schema.org/URL" >
                     <li>
@@ -184,7 +184,7 @@
                         <a href=""itemprop="serviceUrl" data-seccion="perfil">Mi Perfil</a>
                     </li>
                     @endcan
-                   
+
                     <li>
                         <a href="">{{ Auth::user()->username }} </a>
                             <ul class="dropdown">
@@ -193,11 +193,11 @@
                     </li>
                     </ul>
                     @endif
-                    
+
                 </div>
             </div>
-            
-            
+
+
 
         </nav>
 
