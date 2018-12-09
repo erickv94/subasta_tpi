@@ -29,6 +29,7 @@ class ProductoStoreRequest extends FormRequest
             'fecha_expiracion'   =>  'required|date|after:yesterday',
             'descripcion'        =>  'nullable',
             'categorias'         =>  'required',
+            'file_img'           =>  'required',
         ];
     }
     public function messages()
@@ -41,6 +42,7 @@ class ProductoStoreRequest extends FormRequest
             'precio_inicial.required'=>$required,
             'fecha_expiracion.required'=>$required,
             'categorias.required'=>$required,
+            'file_img.required'=>$required,
             /*regex*/
             'nombre_producto.regex'=>"No debe contener numeros o simbolos",
             'precio_inicial.regex'=>"debe tener el formato para dolares",

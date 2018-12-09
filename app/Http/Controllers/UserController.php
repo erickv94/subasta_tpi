@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Empresa;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Encryption\DecryptException;
@@ -93,7 +94,7 @@ class UserController extends Controller
         //actualizar roles
         $user->roles()->sync($request->get('roles'));
         return redirect()->route('users.show', $user->id)
-        ->with('msj','El Usuario: '.$user->name.' ha sido actualizado con exito');;
+        ->with('msj','El Usuario: '.$user->name.' ha sido actualizado con exito');
     }
 
     /**
@@ -106,6 +107,30 @@ class UserController extends Controller
     {
         $user = User::find($id)->delete();
         return back()->with('info', 'Eliminado correctamente');
+    }
+
+    public function showProfile($id)
+    {
+        $user = User::find($id);
+        return view('users.perfil', compact('user'));
+    }
+    public function editProfile(User $user)
+    {
+        return view('users.editPerfil', compact('user'));
+    }
+    public function updateProfile(Request $request, $id)
+    {
+        //actualizar usuario
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+        if($user->empresa){
+        $empresa = Empresa::findOrFail($user->empresas->id_empresa);
+        $empresa->update($request->all());
+        }
+        
+        return redirect()->action('UserController@showProfile',['id' => $id])
+        ->with('msj','Perfil Actualizado con exito');
+
     }
 
     public function showResetPassword(Request $request){

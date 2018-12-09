@@ -37,7 +37,7 @@
 </div>
 <div class="form-group">
 	{{ Form::label('telefono', 'Telefono') }}
-	{{ Form::text('telefono', null, ['class' => 'form-control', 'id' => 'telefono']) }}
+	{{ Form::text('telefono', $user->clientes->telefono, ['class' => 'form-control', 'id' => 'telefono']) }}
     @if($errors->has('telefono'))
 		<div class="form-control-feedback text-danger">
 				{{$errors->first('telefono')}}
@@ -46,7 +46,7 @@
 </div>
 <div class="form-group">
 	{{ Form::label('fecha_nacimiento','Fecha de Nacimiento') }}
-	{{ Form::date('fecha_nacimiento', null, ['class' => 'form-control', 'id' => 'fecha_nacimiento']) }}
+	{{ Form::date('fecha_nacimiento', $user->clientes->fecha_nacimiento, ['class' => 'form-control', 'id' => 'fecha_nacimiento']) }}
 	@if($errors->has('fecha_nacimiento'))
 		<div class="form-control-feedback text-danger">
 				{{$errors->first('fecha_nacimiento')}}

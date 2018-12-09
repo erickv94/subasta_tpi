@@ -76,7 +76,6 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        
         $user = User::findOrFail($id);
         return view('clientes.show',compact('user'));
     }
@@ -89,8 +88,7 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        
-        $user = User::findOrFail($id);
+        $user= User::findOrFail($id);
         return view('clientes.edit',compact('user'));
     }
 
@@ -105,7 +103,8 @@ class ClienteController extends Controller
     {
         $user = User::findOrFail($id);
         $user->update($request->all());
-        $user->clientes()->id_user=$user->id;
+        $cliente = Cliente::findOrFail($user->clientes->id_cliente);
+        $cliente->update($request->all());
         return redirect()->route('clientes.show',$user->id)
         ->with('msj','Perfil actualizado con Exito');
     }
@@ -137,8 +136,5 @@ class ClienteController extends Controller
         return redirect()->action('ClienteController@index')->with('msj','El perfil del cliente '.$user->name.' ha sido habilitado');
     }
 
-    public function  showProfile(Request $request){
-
-        return view('clientes.perfil-cliente');
-    }
+   
 }

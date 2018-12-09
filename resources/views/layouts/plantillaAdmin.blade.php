@@ -82,9 +82,7 @@
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">Configuraciòn</a>
-            
-            <a class="dropdown-item" href="">Perfil</a>
+            <a class="dropdown-item" href="{{ route('users.showProfile',Auth::user()->id) }}">Perfil</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ route('logout') }}"  data-toggle="modal" data-target="#logoutModal">
                 {{ __('Logout') }}
