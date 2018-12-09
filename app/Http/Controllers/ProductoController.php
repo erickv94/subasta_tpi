@@ -47,6 +47,7 @@ class ProductoController extends Controller
      */
     public function store(ProductoStoreRequest $request)
     {
+        //Cloudinary
         $image_name = $request->file('file_img')->getRealPath();
         \Cloudinary::config(array( 
             "cloud_name" => 'diaql6ydv', 
@@ -54,16 +55,8 @@ class ProductoController extends Controller
             "api_secret" => 'oGuJAs75S3e9C_Qax8u9lUkP_p8'
         ));
          
-        $file_img = \Cloudinary\Uploader::upload($image_name);
-        
-       dd($file_img);
-        
-        /*if($request->hasFile('file_img')){
-            $file = $request->file('file_img');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/imagenes/',$name);
-           
-        }*/
+        $file_img = \Cloudinary\Uploader::upload($image_name,  ["width" => 1200, "height"=>400]);
+    
         $user = Auth::user()->empresas;
         //Codigo es generado por la aplicación
         $cantidad = Producto::count();
@@ -85,7 +78,7 @@ class ProductoController extends Controller
         //Slug creado con el codigo y el nombre de la categoria
         $categoria_nombre = $producto->categorias->nombre_categoria;
         $producto->slug=str_slug($codigo. ' ' . $categoria_nombre);
-        $producto->file_img = $file_img;
+        $producto->file_img = $file_img['url'];
         $producto->save();
         
         return redirect()->route('productos.show',$producto->slug)
@@ -124,6 +117,7 @@ class ProductoController extends Controller
      */
     public function update(ProductoStoreRequest $request, $id)
     {
+        //Cloudinary
         $image_name = $request->file('file_img')->getRealPath();
         \Cloudinary::config(array( 
             "cloud_name" => 'diaql6ydv', 
@@ -131,13 +125,8 @@ class ProductoController extends Controller
             "api_secret" => 'oGuJAs75S3e9C_Qax8u9lUkP_p8'
         ));
          
-        $file_img = \Cloudinary\Uploader::upload(__DIR__. $image_name);
-        dd($file_img);
-       /* Cloudder::upload($image_name, null);
-        list($width, $height) = getimagesize($image_name);
+        $file_img = \Cloudinary\Uploader::upload($image_name,  ["width" => 1200, "height"=>400]);
 
-        $file_img= Cloudder::show(Cloudder::getPublicId(), ["width" => 1200, "height"=>400]);
-        */
         $user = Auth::user()->empresas;
         //Codigo es generado por la aplicación
         $cantidad = Producto::count();
@@ -157,7 +146,7 @@ class ProductoController extends Controller
         //Slug creado con el codigo y el nombre de la categoria
         $categoria_nombre = $producto->categorias->nombre_categoria;
         $producto->slug=str_slug($codigo. ' ' . $categoria_nombre);
-        $producto->file_img = $file_img;
+        $producto->file_img = $file_img['url'];
         $producto->update();
         return redirect()->route('productos.show',$producto->slug)
                 ->with('msj','Producto actualizado con éxito');
