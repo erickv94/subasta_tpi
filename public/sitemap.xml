@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+    
+    <loc>http://localhost/</loc>
+        <lastmod>2018-12-09T14:24:34+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+    
+    <loc>http://localhost/img/expandidas/1.jpg</loc>
+        <lastmod>2018-12-09T14:24:34+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+    
+    <loc>http://localhost/img/expandidas/2.jpg</loc>
+        <lastmod>2018-12-09T14:24:34+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+    
+    <loc>http://localhost/img/expandidas/3.jpg</loc>
+        <lastmod>2018-12-09T14:24:34+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+    
+    <loc>http://localhost/img/expandidas/4.jpg</loc>
+        <lastmod>2018-12-09T14:24:34+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+    
+    <loc>http://localhost/img/expandidas/5.jpg</loc>
+        <lastmod>2018-12-09T14:24:34+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+    
+    <loc>http://localhost/img/expandidas/6.jpg</loc>
+        <lastmod>2018-12-09T14:24:34+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+    
+    <loc>http://localhost/login</loc>
+        <lastmod>2018-12-09T14:24:37+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+    
+    <loc>http://localhost/password/reset</loc>
+        <lastmod>2018-12-09T14:24:38+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>
