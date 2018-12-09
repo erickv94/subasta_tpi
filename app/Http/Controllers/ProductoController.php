@@ -48,10 +48,15 @@ class ProductoController extends Controller
     public function store(ProductoStoreRequest $request)
     {
         $image_name = $request->file('file_img')->getRealPath();
-        Cloudder::upload($image_name, null);
-        list($width, $height) = getimagesize($image_name);
-
-        $file_img= Cloudder::show(Cloudder::getPublicId(), ["width" => 1200, "height"=>400]);
+        \Cloudinary::config(array( 
+            "cloud_name" => 'diaql6ydv', 
+            "api_key" => '268665628715117', 
+            "api_secret" => 'oGuJAs75S3e9C_Qax8u9lUkP_p8'
+        ));
+         
+        $file_img = \Cloudinary\Uploader::upload($image_name);
+        
+       dd($file_img);
         
         /*if($request->hasFile('file_img')){
             $file = $request->file('file_img');
@@ -120,11 +125,19 @@ class ProductoController extends Controller
     public function update(ProductoStoreRequest $request, $id)
     {
         $image_name = $request->file('file_img')->getRealPath();
-        Cloudder::upload($image_name, null);
+        \Cloudinary::config(array( 
+            "cloud_name" => 'diaql6ydv', 
+            "api_key" => '268665628715117', 
+            "api_secret" => 'oGuJAs75S3e9C_Qax8u9lUkP_p8'
+        ));
+         
+        $file_img = \Cloudinary\Uploader::upload(__DIR__. $image_name);
+        dd($file_img);
+       /* Cloudder::upload($image_name, null);
         list($width, $height) = getimagesize($image_name);
 
         $file_img= Cloudder::show(Cloudder::getPublicId(), ["width" => 1200, "height"=>400]);
-        
+        */
         $user = Auth::user()->empresas;
         //Codigo es generado por la aplicación
         $cantidad = Producto::count();
