@@ -6,6 +6,7 @@ use App\Empresa;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     /**
@@ -133,43 +134,26 @@ class UserController extends Controller
 
     }
 
-    public function showResetPassword(Request $request){
+    public function showResetPassword(User $user)
+    {
 
-        return view('users.reset-password');
+        return view('users.reset-password', compact('user'));
     }
 
-    public function updatePassword(){
-        $rules = [
-            'mypassword' => 'required',
-            'password' => 'required|confirmed|min:6|max:16',
-
-        ];
-        $messages =  [
-            'mypassword.required' => 'El campo es requerido',
-            'password.required'=> 'EL campo es requerido',
-            'password.confirmed'=> 'Las passwords no coinciden',
-            'password.confirmed'=> 'El minimo permitido son 6 caracteres',
-            'password.max' => 'EL  maximo prermitido son 18 caracteres',
-        ];
-       $validator = Validator::make($request->all(), $rules, $messages);
-       if($validator->fails()){
-           return redirect('users/showResetPassword')->withErrors($validator);
-
-       }
-       else{
-           if(Hash::check($request->mypassword, Auth::user()->password)){
-                $user = new User;
-                $user->where('email','=',Auth::user()->email)
-                    ->update(['password'=>bcrypt($request->password)]);
-                return redirect('user')->with('status','Password cambiado con exito');
-
-           }
-           else{
-               return redirect('users/showResetPassword')->with('message','CREDENCIALES INCORRECTAS');
-
-           }
-
-       }
+    public function updatePassword(Request $request, $id){
+      
+        $user=User::findOrFail($id);
+        $almacenada=$user->password;
+        $recibida=$request->old_password;
+        if (Hash::check($recibida, $almacenada)) {
+          $nueva_password=$request->new_password;
+          $user->password=bcrypt($nueva_password);
+          $user->save();
+          return redirect()->action('UserController@showProfile',['id' => $user->id])->with('msj','la contraseña ha sido modificada con éxito');
+        }else{
+          return redirect()->action('UserController@showProfile',['id' => $user->id])->with('msj2','La contraseña anterior está incorrecta, intentelo nuevamente');
+        }
+        
     }
 }
 

@@ -28,6 +28,9 @@
                 @if(session()->has('msj'))
                      <div class="alert alert-success" role="alert">{{session('msj')}}</div>
                 @endif
+                @if(session()->has('msj2'))
+                     <div class="alert alert-danger" role="alert">{{session('msj2')}}</div>
+                @endif
                 <div class="card-body">
                 <p ><strong>Nombre: </strong>     {{ $user->name }}</p>
                 <p><strong>Email: </strong>      {{ $user->email }}</p>
@@ -45,7 +48,11 @@
                         <i class="fas fa-save"></i> Editar Mi Perfil
                     </a>
                 </td>
-
+                <td width="8px">
+                    <a type="button" class="btn btn-sm btn-success pull-right" href="{{ route('showReset', $user->id) }}">
+                    <i class="far fa-edit"></i> Cambiar Contraseña
+                    </a>
+                </td>
                 </div>
             </div>
         </div>

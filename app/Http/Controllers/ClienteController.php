@@ -135,6 +135,27 @@ class ClienteController extends Controller
         $user->save();
         return redirect()->action('ClienteController@index')->with('msj','El perfil del cliente '.$user->name.' ha sido habilitado');
     }
+    public function showResetPassword(User $user)
+    {
+
+        return view('clientes.reset-password', compact('user'));
+    }
+
+    public function updatePassword(Request $request, $id){
+       
+        $user=User::findOrFail($id);
+        $almacenada=$user->password;
+        $recibida=$request->old_password;
+        if (Hash::check($recibida, $almacenada)) {
+          $nueva_password=$request->new_password;
+          $user->password=bcrypt($nueva_password);
+          $user->save();
+          return redirect()->action('ClienteController@show',['id' => $user->id])->with('msj','la contraseña ha sido modificada con éxito');
+        }else{
+          return redirect()->action('ClienteController@show',['id' => $user->id])->with('msj2','La contraseña anterior está incorrecta, intentelo nuevamente');
+        }
+        
+    }
 
    
 }

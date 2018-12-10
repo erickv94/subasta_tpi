@@ -94,7 +94,13 @@ Route::middleware(['auth'])->group(function(){
         Route::get('profile/{user}', 'UserController@showProfile')->name('users.showProfile');
         Route::get('profile/{user}/editProfile', 'UserController@editProfile')->name('users.editProfile');
         Route::put('profile/{user}', 'UserController@updateProfile')->name('users.updateProfile');
+<<<<<<< HEAD
 
+=======
+        Route::get('showResetPassword/{user}', 'UserController@showResetPassword')->name('showResetPassword');
+        Route::put('updatePassword/{user}', 'UserController@updatePassword')->name('updatePassword');
+       
+>>>>>>> refs/remotes/origin/master
          //Empresas
         Route::get('empresas', 'EmpresaController@index')->name('empresas.index')
                 ->middleware('permission:empresas.index');
@@ -118,6 +124,8 @@ Route::middleware(['auth'])->group(function(){
                 ->middleware('permission:clientes.perfil');
         Route::put('clientes/{user}', 'ClienteController@update')->name('clientes.update')
                 ->middleware('permission:clientes.perfil');
+        Route::get('showReset/{user}', 'ClienteController@showResetPassword')->name('showReset');
+        Route::put('updatePasswordCliente/{user}', 'ClienteController@updatePassword')->name('updatePasswordCliente');
 
         //Categorias
         Route::post('categorias/store', 'CategoriaController@store')->name('categorias.store')

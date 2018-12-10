@@ -24,6 +24,7 @@
                          </a>
                     </td>
                 @endcan
+                
                 </p>
 
                 </div>
