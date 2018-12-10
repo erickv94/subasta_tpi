@@ -94,13 +94,6 @@ Route::middleware(['auth'])->group(function(){
         Route::get('profile/{user}', 'UserController@showProfile')->name('users.showProfile');
         Route::get('profile/{user}/editProfile', 'UserController@editProfile')->name('users.editProfile');
         Route::put('profile/{user}', 'UserController@updateProfile')->name('users.updateProfile');
-<<<<<<< HEAD
-
-=======
-        Route::get('showResetPassword/{user}', 'UserController@showResetPassword')->name('showResetPassword');
-        Route::put('updatePassword/{user}', 'UserController@updatePassword')->name('updatePassword');
-       
->>>>>>> refs/remotes/origin/master
          //Empresas
         Route::get('empresas', 'EmpresaController@index')->name('empresas.index')
                 ->middleware('permission:empresas.index');
