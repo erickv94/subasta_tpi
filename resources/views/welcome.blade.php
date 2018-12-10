@@ -1,5 +1,7 @@
 @extends('layouts.plantillaInicial')
-
+@section('titulo')
+Sivarcachadas | Inicio
+@endsection
 @section('content')
 <div id="hero-area">
             <div class="overlay"></div>
@@ -8,14 +10,14 @@
                     <div class="col-md-12 col-lg-9 col-xs-12 text-center">
                         <div class="contents">
                             <h1 class="head-title" data-tema="bienvenida" itemprop="exampleOfWork" >Bienvenido a Subastas En linea <span class="year">Sivarchadas</span></h1>
-                            <p data-contenido-servicio="01"> Es una empresa que permite que otras empresas entren en el mercado de 
+                            <p data-contenido-servicio="01"> Es una empresa que permite que otras empresas entren en el mercado de
                                 las subastas en linea .</p>
                             <p data-contenido-servicio="02">
                             La casa de subastas online de más rápido crecimiento en El Salvador,
-                             con gran variedad de artículos singulares. 
+                             con gran variedad de artículos singulares.
                              ¡Visita nuestras subastas y haz tus pujas!
                             </p>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -34,11 +36,11 @@
                          y permitiendo la semántica del contenido para el desarrollo y posicionamiento.
                         </p>
                         <p class="intro-desc"data-contenido-servicio="04">
-                        Somos expertos en servicios de intermediación y facilitación de ventas de productos por medio de subastas 
+                        Somos expertos en servicios de intermediación y facilitación de ventas de productos por medio de subastas
                         online en Centroamerica. Contamos con especialización en venta de activos, bienes inmuebles, maquinaria, vehículos
                          y empresas. Disponemos de los mejores contactos y la mejor agenda para poner a tu disposición subastas judiciales online, subastas embargo y venta de bienes oficiales con énfasis empresarial.
                         </p>
-                       
+
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xs-12">
@@ -47,6 +49,6 @@
             </div>
         </div>
     </section>
-    
+
 
 @endsection

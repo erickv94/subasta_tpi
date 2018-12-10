@@ -1,14 +1,18 @@
 @extends('layouts.plantillaInicial')
 
+@section('titulo')
+Sivarcachada | Contacto
+@endsection
+
 @section('content')
 <div class="page-header" style="background: url(assets/img/banner1.jpg);">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="breadcrumb-wrapper">
-          <h2 class="product-title">Contact Us</h2>
+          <h2 class="product-title">Contactanos</h2>
           <ol class="breadcrumb">
-            <li><a href="/">Home /</a></li>
+            <li><a href="/">Inicio /</a></li>
             <li class="current">Contactanos</li>
           </ol>
         </div>
@@ -23,7 +27,7 @@
     <div class="row">
       <div class="col-12">
         <object style="border:0; height: 450px; width: 100%;" data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.038758989769!2d-89.2056576848161!3d13.716102390370601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6330843530ff0b%3A0xd2e3ab336929e47f!2sUniversidad+de+El+Salvador!5e0!3m2!1ses-419!2ssv!4v1544165703167"></object>
-        
+
       </div>
     </div>
   </div>
@@ -35,8 +39,10 @@
     <div class="row">
       <div class="col-lg-8 col-md-8 col-xs-12">
 
-        <form id="contactForm" class="contact-form" data-toggle="validator" itemprop="mainEntityOfPage">
-          <h2 class="contact-title">
+        <form  action="/mensaje-contacto" method="POST" class="contact-form" data-toggle="validator" itemprop="mainEntityOfPage">
+            {{ csrf_field() }}
+
+            <h2 class="contact-title">
             Envienos su mensaje
           </h2>
           <div class="row">
@@ -50,13 +56,13 @@
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                   <div class="form-group">
-                    <input type="email" itemprop="text" class="form-control" id="email" placeholder="Email" required data-error="Ingrese su email">
+                    <input type="email" itemprop="text" class="form-control" id="email" name="email" placeholder="Email" required data-error="Ingrese su email">
                     <div class="help-block with-errors"></div>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                   <div class="form-group">
-                    <input type="text" itemprop="text" class="form-control" id="msg_subject" name="subject" placeholder="Edad" required data-error="Ingrese su edad">
+                    <input type="text" itemprop="text" class="form-control" id="age" name="age" placeholder="Edad" required data-error="Ingrese su edad">
                     <div class="help-block with-errors"></div>
                   </div>
             </div>
@@ -66,7 +72,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <textarea class="form-control" placeholder="Mensaje" rows="7" data-error="Write your message" required></textarea>
+                  <textarea class="form-control" placeholder="Mensaje" rows="7" data-error="Write your message" name="message" required></textarea>
                   <div class="help-block with-errors"></div>
                 </div>
               </div>
@@ -102,6 +108,6 @@
   </div>
   </div>
 </section>
-    
+
 
 @endsection

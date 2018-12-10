@@ -20,5 +20,13 @@ class Producto extends Model
     {
         return $this->belongsTo(Empresa::class,'id_empresa','id_empresa');
     }
-   
+
+    public function apuestas(){
+        return $this->hasMany(Apuesta::class,'id_producto','id_producto');
+    }
+
+    public function compra(){
+        return $this->hasOne(Compra::class,'id_producto','id_producto');
+    }
+
 }

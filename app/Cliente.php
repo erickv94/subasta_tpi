@@ -19,4 +19,12 @@ class Cliente extends Model
   {
     return $this->belongsTo(User::class,'id_user','id');
   }
+
+  public function compras(){
+    return $this->hasMany(compras::class,'id_cliente', 'id_cliente');
+  }
+
+  public function apuestas(){
+    return $this->hasMany(Apuesta::class,'id_cliente','id_cliente');
+  }
 }

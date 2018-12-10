@@ -1,5 +1,7 @@
 @extends('layouts.plantillaInicial')
-
+@section('titulo')
+    Sivarcachada | Registro de empresa
+@endsection
 @section('content')
 <div class="page-header" style="background: url(assets/img/banner1.jpg);">
     <div class="container">

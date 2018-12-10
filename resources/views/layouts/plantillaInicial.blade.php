@@ -54,6 +54,7 @@
         <link rel="mask-icon" href="{{ secure_asset('/favicon/safari-pinned-tab.svg')   }}" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
+        <title> @yield('titulo') </title>
     </head>
     <body>
         <header id="header-wrap">
@@ -92,7 +93,7 @@
                     <ul class="navbar-nav mr-auto w-100 justify-content-center"  itemscope itemtype="https://schema.org/URL">
                         <li class="nav-item dropdown {{activeMenu('/')}}" itemprop="serviceUrl" data-seccion="home">
                             <a class="nav-link dropdown-toggle" href="{{ url('/') }}">
-                                Home
+                                Inicio
                             </a>
                         </li>
                         <li class="nav-item {{activeMenu('productosSubasta')}}" itemscope itemtype="https://schema.org/Thing" itemprop="category">
@@ -124,7 +125,7 @@
 
                     <ul class="mobile-menu" itemscope itemtype="https://schema.org/URL">
                     <li>
-                        <a href="{{ url('/') }}" itemprop="serviceUrl" data-seccion="home">Home</a>
+                        <a href="{{ url('/') }}" itemprop="serviceUrl" data-seccion="home">Inicio</a>
                     </li>
                     <li>
                         <a href="{{ url('/productosSubasta') }}" itemprop="serviceUrl" data-seccion="productosSubastas">Productos</a>
@@ -136,10 +137,10 @@
                         <a href="{{ route('login') }}" itemprop="serviceUrl" data-seccion="login">Inicio de Sesión</a>
                     </li>
                     <li>
-                        <a href="">Registrese</a>
+                        <a href="">Registrarse</a>
                             <ul class="dropdown">
-                                <li><a href="{{ route('crearEmpresa') }}" itemprop="serviceUrl" data-seccion="crearEmpresa">Registrese como Empresa</a></li>
-                                <li><a href="{{ route('crearCliente') }}" itemprop="serviceUrl" data-seccion="crearCliente">Registrese como Cliente</a></li>
+                                <li><a href="{{ route('crearEmpresa') }}" itemprop="serviceUrl" data-seccion="crearEmpresa">Registrarse como Empresa</a></li>
+                                <li><a href="{{ route('crearCliente') }}" itemprop="serviceUrl" data-seccion="crearCliente">Registrarse como Cliente</a></li>
                             </ul>
                     </li>
                     </ul>
