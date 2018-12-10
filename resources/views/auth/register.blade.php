@@ -1,5 +1,7 @@
 @extends('layouts.plantillaInicial')
-
+@section('titulo')
+    Sivarcachada | Registrarse
+@endsection
 @section('content')
 <div class="page-header" style="background: url(assets/img/banner1.jpg);">
     <div class="container">
@@ -8,7 +10,7 @@
                 <div class="breadcrumb-wrapper">
                     <h2 class="product-title">Registro</h2>
                         <ol class="breadcrumb">
-                            <li class="current">Registrese</li>
+                            <li class="current">Registrarse</li>
                         </ol>
                 </div>
             </div>
@@ -66,8 +68,8 @@
                                 @endif
                             </div>
                         </div>
-                        
-                        
+
+
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>

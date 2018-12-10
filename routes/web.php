@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Mail;
+
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,11 +19,33 @@ Route::get('/', function () {
 });
 
 Route::get('/contacto', function () {return view('contacto');});
+
+Route::post('/mensaje-contacto',function(Request $request){
+
+    $name=$request->name;
+    $email=$request->email;
+    $age=$request->age;
+    $mensaje=$request->message;
+   // now building an asociative array
+   $data=compact('name','email','age','mensaje');
+//dd($data);
+    Mail::send('emails.contacto', $data, function ($message) {
+        $message->from('sivarcachada@gmail.com', 'Sivarcachadas');
+        $message->to('sivarcachada@gmail.com', 'Sivarcachadas');
+        $message->subject('Mensaje de usuarios');
+    });
+
+    return back();
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verificacionUsuario');
 Route::get('/productosSubasta', 'SubastaController@productosSubasta')->name('productosSubasta');
+Route::get('/producto-busqueda', 'SubastaController@search')->name('producto.search');
+
 Route::get('/detalle/{slug}', 'SubastaController@show')->name('detalleProducto');
+
 //Rutas para registro de usuarios de Empresa y Cliente
 Route::get('empresas/create', 'EmpresaController@create')->name('crearEmpresa');
 Route::get('clientes/create', 'ClienteController@create')->name('crearCliente');
@@ -29,7 +54,7 @@ Route::post('clientes/store', 'ClienteController@store')->name('clientes.store')
 
 //Reset User Paasword
 Route::get('users/showResetPassword', 'UserController@showResetPassword');
-ROute::post('users/updatePassword','UserController@updatePassword');
+Route::post('users/updatePassword','UserController@updatePassword');
 
 
 //Routes
@@ -69,9 +94,6 @@ Route::middleware(['auth'])->group(function(){
         Route::get('profile/{user}', 'UserController@showProfile')->name('users.showProfile');
         Route::get('profile/{user}/editProfile', 'UserController@editProfile')->name('users.editProfile');
         Route::put('profile/{user}', 'UserController@updateProfile')->name('users.updateProfile');
-        Route::get('showResetPassword/{user}', 'UserController@showResetPassword')->name('showResetPassword');
-        Route::put('updatePassword/{user}', 'UserController@updatePassword')->name('updatePassword');
-       
          //Empresas
         Route::get('empresas', 'EmpresaController@index')->name('empresas.index')
                 ->middleware('permission:empresas.index');
@@ -113,8 +135,8 @@ Route::middleware(['auth'])->group(function(){
                ->middleware('permission:productos.destroy');
         Route::get('categorias/{slug}/edit', 'CategoriaController@edit')->name('categorias.edit')
                ->middleware('permission:categorias.edit');
-        
-        
+
+
         //Products
         Route::post('productos/store', 'ProductoController@store')->name('productos.store')
                 ->middleware('permission:productos.create');
@@ -134,7 +156,7 @@ Route::middleware(['auth'])->group(function(){
                 ->middleware('permission:productos.habilitar');
         Route::get('productos/deshabilitar/{id}', 'ProductoController@deshabilitar')->name('productos.deshabilitar')
                 ->middleware('permission:productos.deshabilitar');
-        
-       
-        
+
+
+
 });

@@ -1,5 +1,7 @@
 @extends('layouts.plantillaInicial')
-
+@section('titulo')
+Sivarcachada | Productos
+@endsection
 @section('content')
 <div id="hero-area">
             <div class="overlay"></div>
@@ -11,9 +13,10 @@
                             <p>Debe estar registrado para poder comprar un producto pero puede revisar la lista de productos</p>
                             <div class="search-bar">
                                 <div class="search-inner">
-                                    <form class="search-form">
+                                    <form class="search-form" action="/producto-busqueda" method='GET'>
                                         <div class="form-group">
-                                            <input type="text" name="customword" class="form-control" placeholder="¿Que esta Buscando?">
+                                            <input type="text" name="palabra" class="form-control"
+                                            placeholder="¿Que esta Buscando?" required>
                                         </div>
 
                                             <div class="form-group inputwithicon">
@@ -27,7 +30,7 @@
                                                     </div>
                                             <i class="lni-menu"></i>
                                             </div>
-                                            <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
+                                            <button class="btn btn-common" type="submit"><i class="lni-search"></i> Buscar</button>
                                     </form>
                                 </div>
                             </div>
@@ -40,7 +43,7 @@
     <section class="featured section-padding">
     <div class="container">
         <h1 class="section-title">Productos</h1>
-      
+
         <div class="row">
         @foreach($productos as $product)
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
@@ -82,5 +85,5 @@
   </div>
 
 </section>
-    
+
 @endsection

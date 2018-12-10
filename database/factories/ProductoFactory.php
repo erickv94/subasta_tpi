@@ -9,7 +9,7 @@ $factory->define(App\Producto::class, function (Faker $faker) {
         'nombre_producto' => $title,
         'slug'   => str_slug($title.' '.$codigo),
         'codigo' => $codigo,
-        'precio_inicial' => $faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = 80.20) ,
+        'precio_inicial' => round($faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = 80.20) , 2),
         'descripcion' => $faker->text(200),
         'id_empresa' =>rand(1,3),
         'id_categoria' =>rand(1,9),

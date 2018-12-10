@@ -1,5 +1,7 @@
 @extends('layouts.plantillaInicial')
-
+@section('titulo')
+Sivarcachada | Producto {{$producto->nombre_producto}}
+@show
 @section('content')
 <div class="page-header" style="background: url(assets/img/banner1.jpg);">
     <div class="container">
@@ -24,9 +26,9 @@
     <div class="product-img">
       @if($producto->file_img)
         <img src ="{{ $producto->file_img }}" class="img-fluid"/>
-      @endif    
+      @endif
     </div>
-      
+
     </div>
     <div class="details-box">
       <div class="ads-details-info">
@@ -34,12 +36,12 @@
         <div class="details-meta">
           <span><i class="lni-alarm-clock"></i>  {{ $producto->created_at }}</span>
           <span><i class="lni-user"></i>{{ $producto->empresas->users->name }}
-          
+
         </div>
         <p class="mb-4">{{ $producto->descripcion }}</p>
         <p>Precio: <h3 class="price float-left">${{ $producto->precio_inicial }}</h3></p>
-       
-        
+
+
     </div>
     <div class="tag-bottom">
       <div class="float-left">
@@ -69,14 +71,14 @@
         <div class="agent-photo">
         @if($producto->file_img)
           <img src ="{{ $producto->empresas->users->file_img }}" class="img-fluid"/>
-        @endif  
+        @endif
         </div>
         <div class="agent-details">
           <h3>{{ $producto->empresas->users->name}}</h3>
           <span>{{ $producto->empresas->users->direccion}}</span>
         </div>
       </div>
-     
+
       <p>Rubro: {{ $producto->empresas->rubro}}</p>
      
     </div>
