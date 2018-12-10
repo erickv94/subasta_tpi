@@ -1,10 +1,11 @@
 @extends('layouts.plantillaInicial')
 @section('titulo')
 Sivarcachada | Producto {{$producto->nombre_producto}}
-@show
+@endsection
 @section('content')
 <div class="page-header" style="background: url(assets/img/banner1.jpg);">
     <div class="container">
+
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-wrapper">
@@ -18,6 +19,12 @@ Sivarcachada | Producto {{$producto->nombre_producto}}
     </div>
 </div>
 <div class="section-padding">
+    @if(session()->has('success'))
+    <div class="alert alert-success" role="alert">{{session('success')}}</div>
+    @endif
+    @if(session()->has('error'))
+    <div class="alert alert-danger" role="alert">{{session('error')}}</div>
+    @endif
 <div class="container">
 
 <div class="product-info row">
@@ -35,13 +42,42 @@ Sivarcachada | Producto {{$producto->nombre_producto}}
         <h2> {{ $producto->nombre_producto }}</h2>
         <div class="details-meta">
           <span><i class="lni-alarm-clock"></i>  {{ $producto->created_at }}</span>
+
           <span><i class="lni-user"></i>{{ $producto->empresas->users->name }}
 
         </div>
+        <p>Fecha expiracion: <span><i class="lni-alarm-clock"></i>  {{ $producto->fecha_expiracion }}</span> </p>
         <p class="mb-4">{{ $producto->descripcion }}</p>
-        <p>Precio: <h3 class="price float-left">${{ $producto->precio_inicial }}</h3></p>
+        <p>Precio inicial: <h3 class="price ">${{ $producto->precio_inicial }}</h3></p>
+        @if(isset($apuesta))
+        <p>Precio Actual: <h3 class="price "> ${{$apuesta}} </h3></p>
+        @else
+        <p> Nadie a apostado aun </p>
+        @endif
+        <form class="form" method="POST" action="/detalle/apostar">
+            {{ csrf_field() }}
+            <div class="form-group">
+                <label for="email" class="col-md-2 control-label">Propuesto: </label>
+
+                <div class="col-md-12">
+
+                    <input id="valor" type="number" class="form-control" name="valor" min=0 >
+                    <input type="hidden" name="id" value="{{$producto->id_producto}}">
+
+                </div>
+            </div>
 
 
+            <div class="form-group">
+                <div class="col-md-3 col-md-offset-4">
+                    <button type="submit" style="align:center;" class="btn btn-common ">
+                       Ofrecer
+                    </button>
+                </div>
+            </div>
+
+
+        </form>
     </div>
     <div class="tag-bottom">
       <div class="float-left">
@@ -57,16 +93,7 @@ Sivarcachada | Producto {{$producto->nombre_producto}}
           </li>
         </ul>
       </div>
-      <div class="float-right">
-        <div class="share">
-          <div class="social-link">
-            <a class="facebook" data-toggle="tooltip" data-placement="top" title="facebook" href="#"><i class="lni-facebook-filled"></i></a>
-            <a class="twitter" data-toggle="tooltip" data-placement="top" title="twitter" href="#"><i class="lni-twitter-filled"></i></a>
-            <a class="linkedin" data-toggle="tooltip" data-placement="top" title="linkedin" href="#"><i class="lni-linkedin-fill"></i></a>
-            <a class="google" data-toggle="tooltip" data-placement="top" title="google plus" href="#"><i class="lni-google-plus"></i></a>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>

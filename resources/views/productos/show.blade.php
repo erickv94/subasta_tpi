@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+    @if(session()->has('msj'))
+    <div class="alert alert-success" role="alert">{{session('msj')}}</div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
@@ -12,13 +15,11 @@
                   <img src ="{{$producto->file_img }}" class="img-responsive center-block "/>
                 @endif
                 <div class="card-body">
-                @if(session()->has('msj'))
-                     <div class="alert alert-success" role="alert">{{session('msj')}}</div>
-                @endif
+
                 <p><strong>Codigo: </strong>     {{ $producto->codigo }}</p>
                 <p><strong>Nombre: </strong>     {{ $producto->nombre_producto }}</p>
                 <p><strong>Slug: </strong>     {{ $producto->slug }}</p>
-                <p><strong>Descripción: </strong>  {{ $producto->descripcion }}</p> 
+                <p><strong>Descripción: </strong>  {{ $producto->descripcion }}</p>
                 <p><strong>Precio Inicial: </strong>  {{ $producto->precio_inicial }}</p>
                 <p><strong>Categoria: </strong> {{ $producto->categorias->nombre_categoria }}</p>
                 <p><strong>Empresa: </strong> {{ $producto->empresas->users->name}}</p>
@@ -42,17 +43,17 @@
                     </td>
                 @endcan
                 @endif
-                
+
                 @can('productos.edit')
                     <td width="8px">
                         <a type="button" class="btn btn-sm btn-primary pull-right" href="{{ route('productos.edit', $producto->id_producto) }}">
-                           <i class="fas fa-pencil-alt"></i>Editar Producto 
+                           <i class="fas fa-pencil-alt"></i>Editar Producto
                         </a>
                     </td>
-                @endcan                  
+                @endcan
                 </p>
-                </div> 
-                   
+                </div>
+
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@ $factory->define(App\Producto::class, function (Faker $faker) {
         'id_categoria' =>rand(1,9),
         'file_img' => $faker->imageUrl($width=1200,$height=400),
         'fecha_publicacion' =>$faker->date,
-        'fecha_expiracion' =>$faker->date,
+        'fecha_expiracion' =>$faker->dateTimeBetween('+1 week','+1 month'),
         'publicacion' => true,
     ];
 });

@@ -112,6 +112,7 @@ Route::middleware(['auth'])->group(function(){
                ->middleware('permission:users.habilitar');
         Route::get('clientes/deshabilitar/{id}', 'ClienteController@deshabilitar')->name('clientes.deshabilitar')
                ->middleware('permission:users.deshabilitar');
+        Route::post('detalle/apostar','SubastaController@apostar')->name('subasta.apostar');
         //Permisos para editar perfil
         Route::get('clientes/{user}/edit', 'ClienteController@edit')->name('clientes.edit')
                 ->middleware('permission:clientes.perfil');
