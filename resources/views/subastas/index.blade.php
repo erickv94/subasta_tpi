@@ -60,7 +60,7 @@ Sivarcachada | Productos
                 <h4>{{ $product->nombre_producto }}.</h4>
                 <div class="meta-tag">
                   <span>
-                   <i class="lni-user"></i>{{ $product->empresas->users->name }}
+                   <i class="lni-user"></i>{{ $product->empresas->users->username }}
                   </span>
                   <span>
                     <i class="fas fa-at"></i>{{ $product->empresas->users->email }}

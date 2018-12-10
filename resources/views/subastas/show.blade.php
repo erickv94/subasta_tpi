@@ -93,7 +93,6 @@ Sivarcachada | Producto {{$producto->nombre_producto}}
           </li>
         </ul>
       </div>
-
     </div>
   </div>
 </div>
@@ -116,7 +115,7 @@ Sivarcachada | Producto {{$producto->nombre_producto}}
       </div>
 
       <p>Rubro: {{ $producto->empresas->rubro}}</p>
-      <button class="btn btn-common fullwidth mt-4">Detalles de la Empresa</button>
+
     </div>
   </div>
 
