@@ -9,12 +9,10 @@
                    Detalle de Categoria
                 </div>
                 <div class="card-body">
-                @if(session()->has('msj'))
-                    <div class="alert alert-success" role="alert">{{session('msj')}}</div>
-                @endif
+
                     <p><strong>Nombre</strong>     {{ $categoria->nombre_categoria }}</p>
                     <p><strong>Slug</strong>       {{ $categoria->slug }}</p>
-                    <p><strong>Descripción</strong>  {{ $categoria->descripcion }}</p> 
+                    <p><strong>Descripción</strong>  {{ $categoria->descripcion }}</p>
                     <p>
                     @can('categorias.edit')
                         <td width="8px">

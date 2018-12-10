@@ -8,6 +8,12 @@
   </li>
   <li class="breadcrumb-item active">Clientes</li>
 </ol>
+@if(session()->has('msj'))
+<div class="alert alert-success" role="alert">{{session('msj')}}</div>
+@endif
+@if(session()->has('msj2'))
+<div class="alert alert-warning" role="alert">{{session('msj2')}}</div>
+@endif
     <div id="content-wrapper">
         <div class="container-fluid">
           <!-- DataTables Example -->
@@ -59,22 +65,17 @@
                                     </a>
                                 </td>
                               @endcan
-                                
+
                               @endif
                           </tr>
                           @endforeach
                   </tbody>
                 </table>
-                {{ $clientes->render() }}
+                {!! $clientes->render() !!}
               </div>
             </div>
           </div>
-          @if(session()->has('msj'))
-                <div class="alert alert-success" role="alert">{{session('msj')}}</div>
-           @endif
-           @if(session()->has('msj2'))
-                <div class="alert alert-warning" role="alert">{{session('msj2')}}</div>
-           @endif
+
         </div>
         <!-- /.container-fluid -->
 @endsection

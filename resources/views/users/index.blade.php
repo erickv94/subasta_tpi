@@ -15,7 +15,7 @@
             <div class="card-header">
             @can('users.create')
               <i class="fas fa-table"></i>
-              Productos 
+              Productos
               <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary pull-right">
               <i class="fas fa-save"></i>Crear </a>
             @endcan
@@ -56,12 +56,12 @@
                                   </a>
                               </td>
                               @endcan
-                              
+
                           </tr>
                           @endforeach
                       </tbody>
                 </table>
-                {{ $users->render() }}
+                {!! $users->render() !!}
               </div>
             </div>
 

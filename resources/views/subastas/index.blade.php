@@ -80,7 +80,7 @@ Sivarcachada | Productos
           @endforeach
         </div>
       </div>
-      {{ $productos->render() }}
+      {!! $productos->render() !!}
     </div>
   </div>
 

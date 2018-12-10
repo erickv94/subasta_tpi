@@ -8,18 +8,24 @@
   </li>
   <li class="breadcrumb-item active">Productos</li>
 </ol>
-    <div id="content-wrapper">
+@if(session()->has('msj'))
+<div class="alert alert-success" role="alert">{{session('msj')}}</div>
+@endif
+@if(session()->has('msj2'))
+<div class="alert alert-danger" role="alert">{{session('msj2')}}</div>
+@endif
+<div id="content-wrapper">
         <div class="container-fluid">
           <!-- DataTables Example -->
           <div class="card mb-3">
             <div class="card-header">
             @can('productos.create')
               <i class="fas fa-table"></i>
-              Productos 
+              Productos
               <a href="{{ route('productos.create') }}" class="btn btn-sm btn-primary pull-right">
               <i class="fas fa-save"></i>Crear </a>
             @endcan
-             
+
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -33,14 +39,7 @@
                       <th colspan="5">Acciones</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                        <th>Categoria</th>
-                        <th>Fecha Publicacion</th>
-                        <th>Fecha Expiracion</th>
-                        <th colspan="5">Acciones</th>
-                    </tr>
-                  </tfoot>
+
                   <tbody>
                   @foreach($productos as $product)
                           <tr>
@@ -58,11 +57,11 @@
                               @can('productos.edit')
                               <td width="8px">
                                   <a type="button" class="btn btn-sm btn-primary pull-right" href="{{ route('productos.edit', $product->id_producto) }}">
-                                  <i class="fas fa-pencil-alt"></i> 
+                                  <i class="fas fa-pencil-alt"></i>
                                   </a>
                               </td>
                               @endcan
-                             
+
                               @can('productos.destroy')
                               <td width="8px">
                                   {!! Form::open(['route' => ['productos.destroy', $product->id_producto],
@@ -94,16 +93,11 @@
                           @endforeach
                   </tbody>
                 </table>
-                {{ $productos->render() }}
+                {!! $productos->render() !!}
               </div>
             </div>
           </div>
-          @if(session()->has('msj'))
-                <div class="alert alert-success" role="alert">{{session('msj')}}</div>
-           @endif
-           @if(session()->has('msj2'))
-                <div class="alert alert-danger" role="alert">{{session('msj2')}}</div>
-           @endif
+
         </div>
         <!-- /.container-fluid -->
 @endsection

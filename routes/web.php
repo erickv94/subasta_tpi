@@ -137,7 +137,8 @@ Route::middleware(['auth'])->group(function(){
         Route::get('categorias/{slug}/edit', 'CategoriaController@edit')->name('categorias.edit')
                ->middleware('permission:categorias.edit');
 
-
+        //compras
+        Route::get('compras','ComprasController@index')->name('compras.index');
         //Products
         Route::post('productos/store', 'ProductoController@store')->name('productos.store')
                 ->middleware('permission:productos.create');

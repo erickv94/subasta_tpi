@@ -41,33 +41,19 @@
                     <tr>
                     <th>Nombre de la Categoria</th>
                       <th>Slug</th>
-                      <th colspan="3">Acciones</th>
+
                     </tr>
                   </tfoot>
                   <tbody>
-                    @foreach($categorias as $categoria)
+                    @foreach($compras as $compra)
                           <tr>
-                              <td>{{ $categoria->nombre_categoria }}</td>
-                              <td>{{ $categoria->slug }}</td>
-                              @can('categorias.show')
-                                <td width="8px">
-                                <a type="button" class="btn btn-sm btn-info pull-right" href="{{ route('categorias.show', $categoria->slug) }}">
-                                    <i class="far fa-eye"></i>
-                                    </a>
-                                </td>
-                                @endcan
-                              @can('categorias.edit')
-                                <td width="8px">
-                                    <a type="button" class="btn btn-sm btn-primary pull-right" href="{{ route('categorias.edit', $categoria->slug) }}">
-                                    <i class="fas fa-pencil-alt"></i>
-                                    </a>
-                                </td>
-                               @endcan
+
+
                           </tr>
                           @endforeach
                   </tbody>
                 </table>
-                {!! $categorias->render() !!}
+                {!! $compras->render() !!}
               </div>
             </div>
           </div>

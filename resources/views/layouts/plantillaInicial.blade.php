@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!--Metainformación-->
         <meta name="author" content="Erick Antonio Ventura" />
-        <meta name="keywords" content="subastas onlinea,ventas el salvador marketing web, Sivarcachadas " />
+        <meta name="keywords" content="subastas online,ventas el salvador marketing web, Sivarcachadas,subastas el salvador, subasta sivarchadas " />
         <meta name="description" content="Somos una empresa que permite que otras empresas entren en el mercado de las subastas en linea de una forma rapida y facil" />
 
         <!--OPG y TW CARD-->
