@@ -55,16 +55,7 @@
           </li>
         </ul>
       </div>
-      <div class="float-right">
-        <div class="share">
-          <div class="social-link">
-            <a class="facebook" data-toggle="tooltip" data-placement="top" title="facebook" href="#"><i class="lni-facebook-filled"></i></a>
-            <a class="twitter" data-toggle="tooltip" data-placement="top" title="twitter" href="#"><i class="lni-twitter-filled"></i></a>
-            <a class="linkedin" data-toggle="tooltip" data-placement="top" title="linkedin" href="#"><i class="lni-linkedin-fill"></i></a>
-            <a class="google" data-toggle="tooltip" data-placement="top" title="google plus" href="#"><i class="lni-google-plus"></i></a>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -87,7 +78,7 @@
       </div>
      
       <p>Rubro: {{ $producto->empresas->rubro}}</p>
-      <button class="btn btn-common fullwidth mt-4">Detalles de la Empresa</button>
+     
     </div>
   </div>
 
