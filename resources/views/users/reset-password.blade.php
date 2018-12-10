@@ -1,44 +1,26 @@
-<section>
-    <div class="container p-5">
-        <div class="row m-5 ">
-            <div class="col-md-10">
+@extends('layouts.plantillaAdmin')
 
-                <div class="card text-center">
-                    <div class="card-header">
-                        Cambio de contraseña
-                    </div>
-                    <div class="card-body">
-                            <form method="post" action="{{url('users/updatePassword')}}>
-                                {{ csrf_field() }}
-
-                                    <div class="form-group row">
-                        <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Contraseña actual</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Contraseña actual">
-                        </div>
-                    </div>
-                                    <div class="form-group row">
-                                      <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Contraseña</label>
-                                      <div class="col-sm-8">
-                                        <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Nueva contraseña">
-                                      </div>
-                                    </div>
-                                    <div class="form-group row">
-                                            <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Reescribir contraseña</label>
-                                            <div class="col-sm-8">
-                                              <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Confirmar contraseña ">
-                                            </div>
-                                          </div>
-                                          <button type="button" class="btn btn-primary btn-sm">Guardar</button>
-                                   
-                                  </form>
-                    </div>
-
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    Editar Mi Perfil
                 </div>
 
-            </div>
+                <div class="card-body">
+                {!! Form::model($user, ['route' => ['updatePassword', $user->id],
+                    'method' => 'PUT']) !!}
 
+                        @include('users.partials.formReset')
+                        
+                    {!! Form::close() !!}
+                </div>
+            </div>
         </div>
     </div>
-
-</section>
+</div>
+<br>
+<br>
+@endsection
